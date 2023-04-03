@@ -1,26 +1,3 @@
-//CONSTRUCTOR DE POKEMON NECESARIO PARA TENER LOS OBJETOS
-
-class Pokemon{
-    nombre;
-    generacion;
-    tipo;
-    altura;
-    peso;
-    habilidad;
-    descripcion;
-    
-    constructor (nombre, generacion, tipo, altura, peso, habilidad, descripcion)
-{
-    this.nombre = nombre;
-    this.generacion = generacion;
-    this.tipo = tipo;
-    this.altura = altura;
-    this.peso = peso;
-    this.habilidad = habilidad;
-    this.descripcion = descripcion;
-}
-}
-
 //PRIMERA GENERACION
 const charmander = new Pokemon("Charmander", "Primera generación", "Fuego", "0.6m", "8.5kg", "Mar Llamas", "Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la cola.");
 const squirtle = new Pokemon("Squirtle", "Primera generación", "Agua", "0.5m", "9kg", "Torrente", "Cuando retrae su largo cuello en el caparazón, dispara agua a una presión increíble.");
