@@ -26,6 +26,7 @@ const snivy = new Pokemon("Snivy", "Quinta generación", "Planta", "0.6m", "8.1k
 //ARREGLOS, UNO PARA CONFIRMAR QUE EL NOMBRE ESTA (listaPokemonsTrue), DESPUES DE CONFIRMAR QUE ESTA NECESITAMOS UNA CON LOS DATOS (listPokemons)
 
 const listaPokemonsTrue = ["charmander", "squirtle", "bulbasaur", "cyndaquil", "totodile", "chikorita", "torchic", "mudkip", "treecko", "chimchar", "piplup", "turtwig", "tepig", "oshawott", "snivy"];
+
 const listaPokemons = [charmander, squirtle, bulbasaur, cyndaquil, totodile, chikorita, torchic, mudkip, treecko, chimchar, piplup, turtwig, tepig, oshawott, snivy];
 
 //FUNCION PARA MOSTRAR CADA ATRIBUTO DEL POKEMON DE listaPOKEMON QUE SE DESEE
@@ -37,23 +38,22 @@ function mostrarDato(listaGenerica){
 }
 
 //COMIENZO DE LA PARTE INTERACTIVA, LE PIDO UN NOMBRE AL USUARIO
+//ESTA PARTE DE .includes e .indexOf LA NECESITO PORQUE prompt SOLO DEVUELVE UN STRING, NO UN OBJETO. ASI QUE POR ESO HICE EL ARREGLO DE STRINGS, PARA ASI USAR EL INDICE EN LA OTRA LISTA DE OBJETOS. ES NECESARIO QUE TENGAN EL MISMO ORDEN DE LOS NOMBRES
 
 alert("Bienvenido a la PokeDex de iniciales! :)" + "\n\n" + "NOTA: Esta pokedex solo funciona con los pokemons iniciales de la 1ra a la 5ta generación");
 
-//ESTA PARTE DE .includes e .indexOf LA NECESITO PORQUE prompt SOLO DEVUELVE UN STRING, NO UN OBJETO. ASI QUE POR ESO HICE EL ARREGLO DE STRINGS, PARA ASI USAR EL INDICE EN LA OTRA LISTA DE OBJETOS. ES NECESARIO QUE TENGAN EL MISMO ORDEN DE LOS NOMBRES
 
 let nombrePokemon = prompt("Cuál es el nombre del pokemon que buscas?").toLowerCase();
-const nombrePokemonTrue = listaPokemonsTrue.includes(nombrePokemon);
-const indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
+let nombrePokemonTrue = listaPokemonsTrue.includes(nombrePokemon);
+let indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
 
 if (nombrePokemonTrue != true){
-    alert("El nombre que ingresó no es correcto");
+     alert("El nombre que ingresó no es correcto");
 }else {
-    let i = indexPokemon;
-    mostrarDato(listaPokemons[i]);
+        let i = indexPokemon;
+        mostrarDato(listaPokemons[i]);
 }
 
-//let continuar = prompt("Desea buscar otro pokemon? Si/No").toLowerCase();
 
 
 
