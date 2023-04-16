@@ -37,6 +37,8 @@ function mostrarDato(listaGenerica){
     }
 }
 
+///mostrarDato() = listaPokemons.forEach((dato) => {console.log(dato + ": " + listaPokemons[dato]);});
+
 //COMIENZO DE LA PARTE INTERACTIVA, LE PIDO UN NOMBRE AL USUARIO
 //ESTA PARTE DE .includes e .indexOf LA NECESITO PORQUE prompt SOLO DEVUELVE UN STRING, NO UN OBJETO. ASI QUE POR ESO HICE EL ARREGLO DE STRINGS, PARA ASI USAR EL INDICE EN LA OTRA LISTA DE OBJETOS. ES NECESARIO QUE TENGAN EL MISMO ORDEN DE LOS NOMBRES
 
@@ -48,12 +50,19 @@ let nombrePokemonTrue = listaPokemonsTrue.includes(nombrePokemon);
 let indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
 
 if (nombrePokemonTrue != true){
-     alert("El nombre que ingresó no es correcto");
+    alert("El nombre que ingresó no es correcto");
 }else {
+    let i = indexPokemon;
+    mostrarDato(listaPokemons[i]);
+    
+    do{
+        seguir = prompt("Deseas buscar otro pokemon? Si/No");
+        nombrePokemon = prompt("Cual es el nombre del nuevo pokemon?");
+        nombrePokemonTrue = listaPokemonsTrue.includes(nombrePokemon);
+        indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
+
         let i = indexPokemon;
         mostrarDato(listaPokemons[i]);
+    }while (seguir == "si");
 }
-
-
-
 
