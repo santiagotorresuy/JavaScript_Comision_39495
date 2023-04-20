@@ -1,12 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex de iniciales</title>
+    <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Pokedex</title>
 </head>
 <body>
+    <header>
+        <nav class="nav">
+            <div class="div-logo">
+                <img src="./img/pngkit_pokeball-png_190666.png" class="logo-pokeball" alt="LogoPokeDex">
+                <h1 class="logo-pokedex">PokéDex</h1>
+            </div>
+            <div class="buscar-pokemon">
+                <form class="d-flex form" role="search">
+                    <input class="form-control me-2 nav-bar" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn-buscar" type="submit">Buscar</button>
+                </form>               
+            </div>
+
+               
+            <!--<ul class="nav-ul">
+                <li class="nav-item"><button class="btn btn-header">Todos</button></li>
+                <li class="nav-item"><button class="btn btn-header">Fuego</button></li>
+                <li class="nav-item"><button class="btn btn-header">Planta</button></li>
+                <li class="nav-item"><button class="btn btn-header">Agua</button></li>
+                <li class="nav-item"><button class="btn btn-header">Tierra</button></li>
+                <li class="nav-item"><button class="btn btn-header">Roca</button></li>
+                <li class="nav-item"><button class="btn btn-header">Lucha</button></li>
+                <li class="nav-item"><button class="btn btn-header">Psiquico</button></li>
+                <li class="nav-item"><button class="btn btn-header">Hada</button></li>
+                <li class="nav-item"><button class="btn btn-header">Dragon</button></li>
+                <li class="nav-item"><button class="btn btn-header">Hielo</button></li>
+                <li class="nav-item"><button class="btn btn-header">Volador</button></li>
+                <li class="nav-item"><button class="btn btn-header">Normal</button></li>
+                <li class="nav-item"><button class="btn btn-header">Fantasma</button></li>
+                <li class="nav-item"><button class="btn btn-header">Oscuridad</button></li>
+                <li class="nav-item"><button class="btn btn-header">Electrico</button></li>
+                <li class="nav-item"><button class="btn btn-header">Veneno</button></li>
+                <li class="nav-item"><button class="btn btn-header">Bicho</button></li>
+                <li class="nav-item"><button class="btn btn-header">Acero</button></li>
+            </ul>-->
+        </nav>
+        
+    </header>
+    <main>
+
+        <div class="pokemon">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png" class="img-pokemon"alt="img_pokemon">
+            <div class="datos-pokemon">
+                <div class="nombre-pokemon">
+                    <p class="numero-pokemon">#132</p>
+                    <p class="nombre">Ditto</p>
+                </div>
+                <div class="tipo-pokemon">
+                    <p class="tipo normal">Normal</p>
+                </div>
+                <div class="altura-peso">
+                    <div class="altura">
+                        <p>Altura 3m</p>
+                    </div>
+                    <div>
+                        <p>Peso 7kg</p>
+                    </div>
+                </div>
+            </div>         
+        </div>
+
+    </main>
+
+
+
+
+
+
+      
     <script src="./js/constructorPokemon.js"></script>
     <script src="./js/pokedex.js"></script>
 </body>

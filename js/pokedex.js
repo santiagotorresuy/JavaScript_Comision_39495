@@ -37,12 +37,10 @@ function mostrarDato(listaGenerica){
     }
 }
 
-///mostrarDato() = listaPokemons.forEach((dato) => {console.log(dato + ": " + listaPokemons[dato]);});
-
 //COMIENZO DE LA PARTE INTERACTIVA, LE PIDO UN NOMBRE AL USUARIO
 //ESTA PARTE DE .includes e .indexOf LA NECESITO PORQUE prompt SOLO DEVUELVE UN STRING, NO UN OBJETO. ASI QUE POR ESO HICE EL ARREGLO DE STRINGS, PARA ASI USAR EL INDICE EN LA OTRA LISTA DE OBJETOS. ES NECESARIO QUE TENGAN EL MISMO ORDEN DE LOS NOMBRES
 
-alert("Bienvenido a la PokeDex de iniciales! :)" + "\n\n" + "NOTA: Esta pokedex solo funciona con los pokemons iniciales de la 1ra a la 5ta generación");
+alert("Bienvenido a la PokeDex de iniciales! :)" + "\n\n" + "NOTA: Esta PokeDex solo funciona con los pokemon iniciales de la 1ra a la 5ta generación");
 
 
 let nombrePokemon = prompt("Cuál es el nombre del pokemon que buscas?").toLowerCase();
@@ -56,13 +54,15 @@ if (nombrePokemonTrue != true){
     mostrarDato(listaPokemons[i]);
     
     do{
-        seguir = prompt("Deseas buscar otro pokemon? Si/No");
+        seguir = prompt("Deseas buscar otro pokemon? Si/No").toLowerCase();
         nombrePokemon = prompt("Cual es el nombre del nuevo pokemon?");
         nombrePokemonTrue = listaPokemonsTrue.includes(nombrePokemon);
         indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
 
         let i = indexPokemon;
         mostrarDato(listaPokemons[i]);
-    }while (seguir == "si");
+    }while (seguir === "si");
 }
+
+
 
