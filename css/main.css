@@ -112,9 +112,9 @@ main{
 
 .nav{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 7rem;
     padding: 1rem 2rem;
 }
 
@@ -145,16 +145,16 @@ main{
 }    
 
 .btn-buscar{
-    background-color: skyblue;
+    background: linear-gradient(skyblue, rgb(185, 224, 240));
     color: white;
     padding-inline: 1rem;
     border-radius: 12px;
 }
 
 .btn-buscar:hover{
-    background-color: transparent;
+    background: transparent;
     border:solid skyblue;
-    border-width: thin;
+    border: solid skyblue;
     color: skyblue;
 }
 
@@ -213,9 +213,22 @@ main{
     padding-inline:inherit;
 }
 
+@media screen and (max-width: 912px) {
+    .nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 2rem;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .pokemon{
         grid-template-columns: 1fr;
         gap: 1rem;
     }
 }
+
+
+
