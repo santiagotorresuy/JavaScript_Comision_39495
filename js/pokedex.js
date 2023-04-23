@@ -83,8 +83,7 @@ alert("Bienvenido a la PokeDex de iniciales! :)" + "\n\n" + "NOTA: Esta PokeDex 
 
 
 let nombrePokemon = prompt("Cuál es el nombre del pokemon que buscas?").toLowerCase();
-let nombrePokemonTrue = listaPokemons.find((Pokemon) => Pokemon.nombre.toLowerCase() == nombrePokemon);
-console.log(nombrePokemonTrue);
+let pokemonEncontrado = listaPokemons.find((Pokemon) => Pokemon.nombre.toLowerCase() == nombrePokemon);
 let indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
 
 /*if (nombrePokemonTrue != true){
@@ -106,7 +105,7 @@ let indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
 
 let pokedex = [];
 
-if (nombrePokemonTrue != true) {
+if (!pokemonEncontrado) {
     alert("El pokemon que ingreso no es correcto!");
 }else {
     cargarUnPokemon();
