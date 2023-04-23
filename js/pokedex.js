@@ -49,26 +49,25 @@ function mostrarUnPokemon() {
     pokedex.forEach((pokemon) => {
         pantallaPokedex.innerHTML = `
         <div class="pokemon" id="pokedex_cuerpo">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png" class="img-pokemon"alt="img_pokemon">
-        <div class="datos-pokemon">
-            <div class="nombre-pokemon">
-                <p class="numero-pokemon">#132</p>
-                <p class="nombre">${pokemon.nombre}</p>
-            </div>
-            <div class="tipo-pokemon">
-                <p class="tipo ${(pokemon.tipo).toLowerCase()}">${pokemon.tipo}</p>
-            </div>
-            <div class="altura-peso">
-                <div class="altura">
-                    <p>${pokemon.altura}</p>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png" class="img-pokemon"alt="img_pokemon">
+            <div class="datos-pokemon">
+                <div class="nombre-pokemon">
+                    <p class="numero-pokemon">#132</p>
+                    <p class="nombre">${pokemon.nombre}</p>
                 </div>
-                <div>
-                    <p>${pokemon.peso}</p>
+                <div class="tipo-pokemon">
+                    <p class="tipo ${(pokemon.tipo).toLowerCase()}">${pokemon.tipo}</p>
                 </div>
-            </div>
-        </div>         
-    </div>
-        `
+                <div class="altura-peso">
+                    <div class="altura">
+                        <p>${pokemon.altura}</p>
+                    </div>
+                    <div>
+                        <p>${pokemon.peso}</p>
+                    </div>
+                </div>
+            </div>         
+        </div>`
     })
 }
 
@@ -84,7 +83,8 @@ alert("Bienvenido a la PokeDex de iniciales! :)" + "\n\n" + "NOTA: Esta PokeDex 
 
 
 let nombrePokemon = prompt("Cuál es el nombre del pokemon que buscas?").toLowerCase();
-let nombrePokemonTrue = listaPokemonsTrue.includes(nombrePokemon);
+let nombrePokemonTrue = listaPokemons.find((Pokemon) => Pokemon.nombre.toLowerCase() == nombrePokemon);
+console.log(nombrePokemonTrue);
 let indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
 
 /*if (nombrePokemonTrue != true){
@@ -114,6 +114,7 @@ if (nombrePokemonTrue != true) {
     pushPokemon();
 }
 
+/*FALTA LOGRAR EL BUCLE, AJUSTAR LA PAGINA PARA QUE NO SE ROMPA CUANDO SE BUSCA UN POKEMON Y LOGRAR APLICAR EL .find EN nombrePokemonTrue*/
 
 
 
