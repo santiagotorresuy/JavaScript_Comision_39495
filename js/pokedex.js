@@ -48,26 +48,28 @@ function mostrarUnPokemon() {
 
     pokedex.forEach((pokemon) => {
         pantallaPokedex.innerHTML = `
-        <div class="pokemon" id="pokedex_cuerpo">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png" class="img-pokemon"alt="img_pokemon">
-            <div class="datos-pokemon">
-                <div class="nombre-pokemon">
-                    <p class="numero-pokemon">#132</p>
-                    <p class="nombre">${pokemon.nombre}</p>
-                </div>
-                <div class="tipo-pokemon">
-                    <p class="tipo ${(pokemon.tipo).toLowerCase()}">${pokemon.tipo}</p>
-                </div>
-                <div class="altura-peso">
-                    <div class="altura">
-                        <p>${pokemon.altura}</p>
+        <main id="main">
+            <div class="pokemon" id="pokedex_cuerpo">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png" class="img-pokemon"alt="img_pokemon">
+                <div class="datos-pokemon">
+                    <div class="nombre-pokemon">
+                        <p class="numero-pokemon">#132</p>
+                        <p class="nombre">${pokemon.nombre}</p>
                     </div>
-                    <div>
-                        <p>${pokemon.peso}</p>
+                    <div class="tipo-pokemon">
+                        <p class="tipo ${(pokemon.tipo).toLowerCase()}">${pokemon.tipo}</p>
                     </div>
-                </div>
-            </div>         
-        </div>`
+                    <div class="altura-peso">
+                        <div class="altura">
+                            <p>${pokemon.altura}</p>
+                        </div>
+                        <div>
+                            <p>${pokemon.peso}</p>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+        </main>`
     })
 }
 
@@ -110,10 +112,10 @@ if (!pokemonEncontrado) {
 }else {
     cargarUnPokemon();
     i= indexPokemon;
-    pushPokemon();
+    pushPokemon();       
 }
 
-/*FALTA LOGRAR EL BUCLE, AJUSTAR LA PAGINA PARA QUE NO SE ROMPA CUANDO SE BUSCA UN POKEMON Y LOGRAR APLICAR EL .find EN nombrePokemonTrue*/
+/*FALTA LOGRAR EL BUCLE, AJUSTAR LA PAGINA PARA QUE NO SE ROMPA CUANDO SE BUSCA UN POKEMON*/
 
 
 

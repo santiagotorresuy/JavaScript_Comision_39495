@@ -173,6 +173,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
+    margin-inline: 3rem;
 }
 
 .datos-pokemon{
