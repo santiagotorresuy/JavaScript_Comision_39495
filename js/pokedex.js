@@ -48,8 +48,6 @@ function mostrarUnPokemon() {
 
     pokedex.forEach((pokemon) => {
         pantallaPokedex.innerHTML = `
-        <main id="main">
-            <div class="pokemon" id="pokedex_cuerpo">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png" class="img-pokemon"alt="img_pokemon">
                 <div class="datos-pokemon">
                     <div class="nombre-pokemon">
@@ -67,9 +65,7 @@ function mostrarUnPokemon() {
                             <p>${pokemon.peso}</p>
                         </div>
                     </div>
-                </div>         
-            </div>
-        </main>`
+                </div>`;
     })
 }
 
@@ -115,7 +111,7 @@ if (!pokemonEncontrado) {
     pushPokemon();       
 }
 
-/*FALTA LOGRAR EL BUCLE, AJUSTAR LA PAGINA PARA QUE NO SE ROMPA CUANDO SE BUSCA UN POKEMON*/
+/*FALTA LOGRAR EL BUCLE*/
 
 
 
