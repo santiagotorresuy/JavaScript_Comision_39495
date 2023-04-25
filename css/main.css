@@ -171,17 +171,21 @@ main{
     max-width: 4rem;
 }
 
-.btn-header{
-    background-image: linear-gradient(white, grey);
+.header-nav-btn{
     width: 6rem;
-    padding: 7px 10px;
+    background-image: linear-gradient(white, grey);
+    padding-block: 7px;
     border-radius: 10px;
     transition: 0.1s
 }
 
-.btn-header:hover{
-    color: black;
-    border: solid black;
+.a-header {
+    padding-inline: 18px;
+    padding-block: 1rem;
+}
+
+.header-nav-btn:hover{
+    transform: scale(1.1,1.1);
 }
 
 .buscar-pokemon{
@@ -208,12 +212,11 @@ main{
     width: 100px;
     padding-inline: 1rem;
     border-radius: 12px;
+    transition: 0.1s;
 }
 
 .btn-buscar:hover{
-    background: transparent;
-    border:solid skyblue;
-    color: skyblue;
+    transform: scale(1.1,1.1);
 }
 
 .img-pokemon{
@@ -225,7 +228,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
-    margin-inline: 3rem;
+    margin: 3rem;
 }
 
 .datos-pokemon{
@@ -281,6 +284,7 @@ main{
     flex-wrap: wrap;
     padding: 1rem;
     gap: 10px;
+    margin: 3rem;
 }
 
 .nav-btn{
@@ -294,12 +298,6 @@ main{
 .nav-btn:hover{
     transform: scale(1.1,1.1);
 }
-
-
-
-
-
-
 
 
 
