@@ -11,16 +11,17 @@ body{
     background-repeat: no-repeat;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 p{
     padding: 0;
     margin: 0;
 }
 
 ul{
-    list-style-type: none;
-}
-
-li{
     list-style-type: none;
 }
 
@@ -40,6 +41,10 @@ main{
     justify-content: center;
     align-items: center;
     margin: 3rem 4rem;
+}
+
+.todos{
+    background-color: white;
 }
 
 .normal{
@@ -114,6 +119,7 @@ main{
     background-color: rgb(152,168,240);
 }
 
+/*POKEDEX*/
 .nan{
     background-color: rgba(255, 255, 255, 0.281);
     border: dotted black;
@@ -121,10 +127,12 @@ main{
 }
 
 .nav{
+    background:linear-gradient(red, rgb(124, 2, 2));
+    box-shadow: 0 0 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 7rem;
+    gap: 5rem;
     padding: 1rem 2rem;
 }
 
@@ -142,21 +150,44 @@ main{
 
 .logo-pokeball{
     size: 100%;
-    max-width: 6rem;
+    max-width: 4rem;
 }
 
-.form{
-    padding: 1rem 0;
+.btn-header{
+    background-image: linear-gradient(white, grey);
+    width: 6rem;
+    padding: 7px 10px;
+    border-radius: 10px;
+    transition: 0.1s
+}
+
+.btn-header:hover{
+    color: black;
+    border: solid black;
 }
 
 .buscar-pokemon{
-    display: flex;
-    align-items: center;
+    width: 15rem;
 }    
 
+.form{
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 10px;
+    width: 274px;
+}
+
+.nav-bar{
+    padding: 7px 10px;
+    border: none;
+    border-radius: 10px;
+    width: 8rem;
+}
+
 .btn-buscar{
-    background: linear-gradient(skyblue, rgb(185, 224, 240));
+    background: linear-gradient(white, skyblue);
     color: white;
+    width: 100px;
     padding-inline: 1rem;
     border-radius: 12px;
 }
@@ -164,7 +195,6 @@ main{
 .btn-buscar:hover{
     background: transparent;
     border:solid skyblue;
-    border: solid skyblue;
     color: skyblue;
 }
 
@@ -224,6 +254,42 @@ main{
     border-bottom: dotted;
     padding-inline:inherit;
 }
+
+/*LISTA COMPLETA*/
+
+.lista-ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 10px;
+}
+
+.nav-btn{
+    width: 9rem;
+    padding: 5px 24px;
+    border-radius: 50px;
+    box-shadow: 0 0 1rem rgb(29, 28, 28);
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.nav-btn:hover{
+    background-color: transparent;
+    color: white;
+    border: solid white;
+}
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 912px) {
     .nav{
