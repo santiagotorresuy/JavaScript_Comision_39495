@@ -278,13 +278,17 @@ main{
 
 /*LISTA COMPLETA*/
 
+.container-lista-completa{
+    max-width: 1500px;
+}
+
 .lista-ul {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 1rem;
     gap: 10px;
-    margin: 3rem;
+    margin-inline: 1rem;
+    margin-bottom: 100px;
 }
 
 .nav-btn{
@@ -299,9 +303,64 @@ main{
     transform: scale(1.1,1.1);
 }
 
+.cards-cuerpo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    row-gap: 50px;
+    column-gap: 50px;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    box-shadow: 0 0 1rem black;
+    transition-duration: 0.2s;
+}
+
+.card:hover{
+    transform: scale(1.1,1.1);
+}
+
+.card-numero-nombre{
+    display: flex;
+    gap: 20px;
+    padding: 10px 10px 0 10px;
+}
+
+.img-pokemon-card{
+    size: 100%;
+    max-width: 10rem;
+    margin-inline: 15px;
+    margin-block: 20px;
+}
 
 
 
+
+@media screen and (min-width: 1024px) {
+    .cards-cuerpo{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        row-gap: 50px;
+        column-gap: 50px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .cards-cuerpo{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        row-gap: 50px;
+        column-gap: 50px;
+    }
+}
 
 @media screen and (max-width: 912px) {
     .nav{
@@ -313,10 +372,32 @@ main{
     }
 }
 
+@media screen and (max-width: 768px) {
+    .cards-cuerpo{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        row-gap: 50px;
+        column-gap: 50px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .pokemon{
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .cards-cuerpo{
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+        row-gap: 50px;
+        column-gap: 50px;
     }
 }
 
