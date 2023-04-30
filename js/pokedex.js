@@ -29,9 +29,37 @@ const listaPokemonsTrue = ["charmander", "squirtle", "bulbasaur", "cyndaquil", "
 
 const listaPokemons = [charmander, squirtle, bulbasaur, cyndaquil, totodile, chikorita, torchic, mudkip, treecko, chimchar, piplup, turtwig, tepig, oshawott, snivy];
 
-//FUNCION PARA MOSTRAR CADA ATRIBUTO DEL POKEMON DE listaPOKEMON QUE SE DESEE
+//FUNCIONES
 
-function mostrarDato(listaGenerica){
+function mostrarUnPokemon() {
+    const pantallaPokedex = document.getElementById("pokedex_cuerpo");
+    pantallaPokedex.innerHTML = ` `;
+
+    pokedex.forEach((Pokemon) => {
+        let {numero, nombre, tipo, altura, peso} = Pokemon;  //APLICANDO DESTRUCTURING
+        pantallaPokedex.innerHTML = `
+                <img src="./img/${nombre}.png" class="img-pokemon"alt="img_pokemon">
+                <div class="datos-pokemon">
+                    <div class="nombre-pokemon">
+                        <p class="numero-pokemon">#${numero}</p>
+                        <p class="nombre">${nombre}</p>
+                    </div>
+                    <div class="tipo-pokemon">
+                        <p class="tipo ${(tipo).toLowerCase()}">${tipo}</p>
+                    </div>
+                    <div class="altura-peso">
+                        <div class="altura">
+                            <p>${altura}</p>
+                        </div>
+                        <div>
+                            <p>${peso}</p>
+                        </div>
+                    </div>
+                </div>`;
+    })
+}
+
+function mostrarDato(listaGenerica){                     //SOLO SE UTILIZA PARA EL CONSOLE.LOG
     for (const dato in listaGenerica){
         console.log(dato + ": " + listaGenerica[dato]);
     }
@@ -39,45 +67,16 @@ function mostrarDato(listaGenerica){
 
 function cargarUnPokemon() {
     let i = indexPokemon; 
-    mostrarDato(listaPokemons[i]);
-}
-
-function mostrarUnPokemon() {
-    const pantallaPokedex = document.getElementById("pokedex_cuerpo");
-    pantallaPokedex.innerHTML = ` `;
-
-    pokedex.forEach((pokemon) => {
-        pantallaPokedex.innerHTML = `
-                <img src="./img/${pokemon.nombre}.png" class="img-pokemon"alt="img_pokemon">
-                <div class="datos-pokemon">
-                    <div class="nombre-pokemon">
-                        <p class="numero-pokemon">#${pokemon.numero}</p>
-                        <p class="nombre">${pokemon.nombre}</p>
-                    </div>
-                    <div class="tipo-pokemon">
-                        <p class="tipo ${(pokemon.tipo).toLowerCase()}">${pokemon.tipo}</p>
-                    </div>
-                    <div class="altura-peso">
-                        <div class="altura">
-                            <p>${pokemon.altura}</p>
-                        </div>
-                        <div>
-                            <p>${pokemon.peso}</p>
-                        </div>
-                    </div>
-                </div>`;
-    })
-}
-
-function pushPokemon() {
+    mostrarDato(listaPokemons[i]);          //SOLO PARA EL CONSOLE.LOG
     pokedex.push(listaPokemons[i]);
     mostrarUnPokemon();
 }
 
 
+
 //COMIENZO DE LA PARTE INTERACTIVA, LE PIDO UN NOMBRE AL USUARIO
 
-alert("Bienvenido a la PokeDex de iniciales! :)" + "\n\n" + "NOTA: Esta PokeDex solo funciona con los pokemon iniciales de la 1ra a la 5ta generación");
+/*alert("Bienvenido a la PokeDex de iniciales! :)" + "\n\n" + "NOTA: Esta PokeDex solo funciona con los pokemon iniciales de la 1ra a la 5ta generación");
 
 
 let nombrePokemon = prompt("Cuál es el nombre del pokemon que buscas?").toLowerCase();
@@ -101,17 +100,54 @@ let indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
     }while (seguir === "si");
 };*/
 
-let pokedex = [];
-
-if (!pokemonEncontrado) {
+/*if (!pokemonEncontrado) {
     alert("El pokemon que ingreso no es correcto!");
 }else {
-    cargarUnPokemon();
-    i= indexPokemon;
-    pushPokemon();       
+    cargarUnPokemon();     
+}*/
+
+
+let pokedex = [];
+
+localStorage.setItem("listaPokemon", listaPokemons);
+
+let navBarPokedex = document.getElementById("navBarPokedex");
+let formPokedex = document.getElementById("formPokedex");
+
+navBarPokedex.addEventListener("change", cargarPokemon);
+
+function cargarPokemon(){
+    let buscador = navBarPokedex.value;
+    let i = listaPokemons.indexOf(listaPokemons.find((Pokemon) => Pokemon.nombre.includes(buscador.toLowerCase())));
+
+    if (!listaPokemons[i]){
+        console.log("El pokemon que ingreso no es correcto!");
+    }else {
+        formPokedex.addEventListener("submit", confirmarPokemon = (e) => {
+            e.preventDefault();
+
+            pokedex.push(listaPokemons[i]);
+            console.log(pokedex);
+
+            mostrarUnPokemon();
+            localStorage.setItem("PokeDex", JSON.stringify(pokedex));
+        });
+    }
 }
 
-/*FALTA LOGRAR EL BUCLE*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
