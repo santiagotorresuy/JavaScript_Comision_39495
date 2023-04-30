@@ -23,9 +23,9 @@ const tepig = new Pokemon("0498","tepig", "Quinta generación", "Fuego", "0.5m",
 const oshawott = new Pokemon("0501","oshawott", "Quinta generación", "Agua", "0.5m", "5.9kg", "Torrente", "La vieira de su ombligo no solo sirve como arma, sino también como instrumento para cortar las bayas que estén duras.");
 const snivy = new Pokemon("0495","snivy", "Quinta generación", "Planta", "0.6m", "8.1kg", "Espesura", "Cuando recibe los rayos de sol, se mueve mucho más rápido que de costumbre. Usa mejor sus lianas que sus manos.");
 
-//ARREGLOS, UNO PARA CONFIRMAR QUE EL NOMBRE ESTA (listaPokemonsTrue), DESPUES DE CONFIRMAR QUE ESTA NECESITAMOS UNA CON LOS DATOS (listPokemons)
+//ARREGLOS
 
-const listaPokemonsTrue = ["charmander", "squirtle", "bulbasaur", "cyndaquil", "totodile", "chikorita", "torchic", "mudkip", "treecko", "chimchar", "piplup", "turtwig", "tepig", "oshawott", "snivy"];
+//const listaPokemonsTrue = ["charmander", "squirtle", "bulbasaur", "cyndaquil", "totodile", "chikorita", "torchic", "mudkip", "treecko", "chimchar", "piplup", "turtwig", "tepig", "oshawott", "snivy"];
 
 const listaPokemons = [charmander, squirtle, bulbasaur, cyndaquil, totodile, chikorita, torchic, mudkip, treecko, chimchar, piplup, turtwig, tepig, oshawott, snivy];
 
@@ -59,7 +59,7 @@ function mostrarUnPokemon() {
     })
 }
 
-function mostrarDato(listaGenerica){                     //SOLO SE UTILIZA PARA EL CONSOLE.LOG
+/*function mostrarDato(listaGenerica){                     //SOLO SE UTILIZA PARA EL CONSOLE.LOG
     for (const dato in listaGenerica){
         console.log(dato + ": " + listaGenerica[dato]);
     }
@@ -109,7 +109,7 @@ let indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
 
 let pokedex = [];
 
-localStorage.setItem("listaPokemon", listaPokemons);
+localStorage.setItem("listaPokemon",JSON.stringify(listaPokemons));
 
 let navBarPokedex = document.getElementById("navBarPokedex");
 let formPokedex = document.getElementById("formPokedex");
@@ -117,25 +117,26 @@ let formPokedex = document.getElementById("formPokedex");
 navBarPokedex.addEventListener("change", cargarPokemon);
 
 function cargarPokemon(){
-    let buscador = navBarPokedex.value;
+    let buscador = navBarPokedex.value.toLowerCase();
     let i = listaPokemons.indexOf(listaPokemons.find((Pokemon) => Pokemon.nombre.includes(buscador.toLowerCase())));
-
-    if (!listaPokemons[i]){
-        console.log("El pokemon que ingreso no es correcto!");
-    }else {
-        formPokedex.addEventListener("submit", confirmarPokemon = (e) => {
-            e.preventDefault();
-
-            pokedex.push(listaPokemons[i]);
-            console.log(pokedex);
-
-            mostrarUnPokemon();
-            localStorage.setItem("PokeDex", JSON.stringify(pokedex));
-        });
-    }
+    return i;
 }
 
-
+formPokedex.addEventListener("submit", (e) => {
+    e.preventDefault();
+    cargarPokemon();
+    let i = cargarPokemon();
+    
+    if (!listaPokemons[i]){
+        console.log("El pokemon que ingreso no es correcto!");
+    }else {    
+        pokedex.push(listaPokemons[i]);
+        console.log(pokedex);
+    
+        sessionStorage.setItem("PokeDex", JSON.stringify(pokedex));
+        mostrarUnPokemon();
+    };    
+})
 
 
 
