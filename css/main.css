@@ -327,6 +327,7 @@ main{
     width: fit-content;
     box-shadow: 0 0 1rem black;
     transition-duration: 0.2s;
+    background-color: rgba(43, 199, 199, 0.486);
 }
 
 .card:hover{
@@ -347,7 +348,7 @@ main{
 }
 
 
-
+/*MEDIA QUERIES*/
 
 @media screen and (min-width: 1024px) {
     .cards-cuerpo{
@@ -423,7 +424,7 @@ main{
     }
     .botones-header{
         display: flex;
-        gap: 0rem;
+        gap: 1rem;
     }
     .a-header {
         font-size: 10px;
@@ -444,6 +445,15 @@ main{
         align-items: center;
         row-gap: 50px;
         column-gap: 50px;
+    }
+    .nombre-pokemon{
+        font-size: 20px;
+    }
+    .tipo{
+        font-size: 20px;
+    }   
+    .altura-peso{
+        font-size: 20px;
     }
 }
 

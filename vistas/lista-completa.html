@@ -17,14 +17,14 @@
                 <img src="../img/pngkit_pokeball-png_190666.png" class="logo-pokeball" alt="LogoPokeDex">
                 <h1 class="logo-pokedex">PokéDex</h1>
             </div>
-            <div class="header-nav-div">
+            <div class="botones-header">
                 <button class="header-nav-btn"><a class="a-header" href="../index.html">Inicio</a></button>
                 <button class="header-nav-btn"><a class="a-header" href="./lista-completa.html">Lista</a></button>
                 <button class="header-nav-btn"><a class="a-header" href="">Tienda</a></button>
             </div>
-            <form class="d-flex form" role="search">
-                <input class="nav-bar" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn-buscar" type="submit">Buscar</button>    
+            <form class="d-flex form" role="search" id="formPokedex">
+                <input class="nav-bar" id="navBarPokedex" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn-buscar" id="btnPokedex" type="submit">Buscar</button>    
             </form>               
         </nav>
     </header>
@@ -32,89 +32,33 @@
         <div class="container-lista-completa" id="containerListaCompleta">
             <ul class="lista-ul" id="ulListCompleta">
                 <li class="nav-item"><button class="nav-btn todos">Todos</button></li>
-                <li class="nav-item"><button class="nav-btn fuego">Fuego</button></li>
-                <li class="nav-item"><button class="nav-btn planta">Planta</button></li>
-                <li class="nav-item"><button class="nav-btn agua">Agua</button></li>
-                <li class="nav-item"><button class="nav-btn tierra">Tierra</button></li>
-                <li class="nav-item"><button class="nav-btn roca">Roca</button></li>
-                <li class="nav-item"><button class="nav-btn lucha">Lucha</button></li>
-                <li class="nav-item"><button class="nav-btn psiquico">Psiquico</button></li>
-                <li class="nav-item"><button class="nav-btn hada">Hada</button></li>
+                <li class="nav-item"><button class="nav-btn fire">Fuego</button></li>
+                <li class="nav-item"><button class="nav-btn grass">Planta</button></li>
+                <li class="nav-item"><button class="nav-btn water">Agua</button></li>
+                <li class="nav-item"><button class="nav-btn ground">Tierra</button></li>
+                <li class="nav-item"><button class="nav-btn rock">Roca</button></li>
+                <li class="nav-item"><button class="nav-btn fighting">Lucha</button></li>
+                <li class="nav-item"><button class="nav-btn psychic">Psiquico</button></li>
+                <li class="nav-item"><button class="nav-btn fairy">Hada</button></li>
                 <li class="nav-item"><button class="nav-btn dragon">Dragon</button></li>
-                <li class="nav-item"><button class="nav-btn hielo">Hielo</button></li>
-                <li class="nav-item"><button class="nav-btn volador">Volador</button></li>
+                <li class="nav-item"><button class="nav-btn ice">Hielo</button></li>
+                <li class="nav-item"><button class="nav-btn flying">Volador</button></li>
                 <li class="nav-item"><button class="nav-btn normal">Normal</button></li>
-                <li class="nav-item"><button class="nav-btn fantasma">Fantasma</button></li>
-                <li class="nav-item"><button class="nav-btn siniestro">Siniestro</button></li>
-                <li class="nav-item"><button class="nav-btn electrico">Electrico</button></li>
-                <li class="nav-item"><button class="nav-btn veneno">Veneno</button></li>
-                <li class="nav-item"><button class="nav-btn bicho">Bicho</button></li>
-                <li class="nav-item"><button class="nav-btn acero">Acero</button></li>
+                <li class="nav-item"><button class="nav-btn ghost">Fantasma</button></li>
+                <li class="nav-item"><button class="nav-btn dark">Siniestro</button></li>
+                <li class="nav-item"><button class="nav-btn electric">Electrico</button></li>
+                <li class="nav-item"><button class="nav-btn poison">Veneno</button></li>
+                <li class="nav-item"><button class="nav-btn bug">Bicho</button></li>
+                <li class="nav-item"><button class="nav-btn steel">Acero</button></li>
             </ul>
-            <div class="cards-cuerpo">
-                <div class="card normal">
+            <div class="cards-cuerpo" id="cuerpoCartas">
+                <!--<div class="card normal">
                     <div class="card-numero-nombre">
                         <p>#0000</p>
                         <p>Nombre</p>
                     </div>
                     <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
-                <div class="card normal">
-                    <div class="card-numero-nombre">
-                        <p>#0000</p>
-                        <p>Nombre</p>
-                    </div>
-                    <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
-                <div class="card normal">
-                    <div class="card-numero-nombre">
-                        <p>#0000</p>
-                        <p>Nombre</p>
-                    </div>
-                    <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
-                <div class="card normal">
-                    <div class="card-numero-nombre">
-                        <p>#0000</p>
-                        <p>Nombre</p>
-                    </div>
-                    <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
-                <div class="card normal">
-                    <div class="card-numero-nombre">
-                        <p>#0000</p>
-                        <p>Nombre</p>
-                    </div>
-                    <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
-                <div class="card normal">
-                    <div class="card-numero-nombre">
-                        <p>#0000</p>
-                        <p>Nombre</p>
-                    </div>
-                    <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
-                <div class="card normal">
-                    <div class="card-numero-nombre">
-                        <p>#0000</p>
-                        <p>Nombre</p>
-                    </div>
-                    <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
-                <div class="card normal">
-                    <div class="card-numero-nombre">
-                        <p>#0000</p>
-                        <p>Nombre</p>
-                    </div>
-                    <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
-                <div class="card normal">
-                    <div class="card-numero-nombre">
-                        <p>#0000</p>
-                        <p>Nombre</p>
-                    </div>
-                    <img class="img-pokemon-card" src="/img/img_pokemon_default.png" alt="" >
-                </div>
+                </div>-->
             </div>
         </div>
 
