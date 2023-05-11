@@ -31,112 +31,61 @@ const listaPokemons = [charmander, squirtle, bulbasaur, cyndaquil, totodile, chi
 
 //FUNCIONES
 
-function mostrarUnPokemon() {
-    const pantallaPokedex = document.getElementById("pokedex_cuerpo");
-    pantallaPokedex.innerHTML = ` `;
-
-    pokedex.forEach((Pokemon) => {
-        let {numero, nombre, tipo, altura, peso} = Pokemon;  //APLICANDO DESTRUCTURING
-        pantallaPokedex.innerHTML = `
-                <img src="./img/${nombre}.png" class="img-pokemon"alt="img_pokemon">
-                <div class="datos-pokemon">
-                    <div class="nombre-pokemon">
-                        <p class="numero-pokemon">#${numero}</p>
-                        <p class="nombre">${nombre}</p>
-                    </div>
-                    <div class="tipo-pokemon">
-                        <p class="tipo ${(tipo).toLowerCase()}">${tipo}</p>
-                    </div>
-                    <div class="altura-peso">
-                        <div class="altura">
-                            <p>${altura}</p>
-                        </div>
-                        <div>
-                            <p>${peso}</p>
-                        </div>
-                    </div>
-                </div>`;
-    })
-}
-
-/*function mostrarDato(listaGenerica){                     //SOLO SE UTILIZA PARA EL CONSOLE.LOG
-    for (const dato in listaGenerica){
-        console.log(dato + ": " + listaGenerica[dato]);
-    }
-}
-
-function cargarUnPokemon() {
-    let i = indexPokemon; 
-    mostrarDato(listaPokemons[i]);          //SOLO PARA EL CONSOLE.LOG
-    pokedex.push(listaPokemons[i]);
-    mostrarUnPokemon();
-}
-
-
-
-//COMIENZO DE LA PARTE INTERACTIVA, LE PIDO UN NOMBRE AL USUARIO
-
-/*alert("Bienvenido a la PokeDex de iniciales! :)" + "\n\n" + "NOTA: Esta PokeDex solo funciona con los pokemon iniciales de la 1ra a la 5ta generación");
-
-
-let nombrePokemon = prompt("Cuál es el nombre del pokemon que buscas?").toLowerCase();
-let pokemonEncontrado = listaPokemons.find((Pokemon) => Pokemon.nombre.toLowerCase() == nombrePokemon);
-let indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
-
-/*if (nombrePokemonTrue != true){
-    alert("El nombre que ingresó no es correcto");
-}else {
-    let i = indexPokemon;
-    mostrarDato(listaPokemons[i]);
-    
-    do{
-        seguir = prompt("Deseas buscar otro pokemon? Si/No").toLowerCase();
-        nombrePokemon = prompt("Cual es el nombre del nuevo pokemon?").toLowerCase();
-        nombrePokemonTrue = listaPokemonsTrue.includes(nombrePokemon);
-        indexPokemon = listaPokemonsTrue.indexOf(nombrePokemon);
-
-        let i = indexPokemon;
-        mostrarDato(listaPokemons[i]);
-    }while (seguir === "si");
-};*/
-
-/*if (!pokemonEncontrado) {
-    alert("El pokemon que ingreso no es correcto!");
-}else {
-    cargarUnPokemon();     
-}*/
-
-
-let pokedex = [];
-
-localStorage.setItem("listaPokemon",JSON.stringify(listaPokemons));
-
-let navBarPokedex = document.getElementById("navBarPokedex");
-let formPokedex = document.getElementById("formPokedex");
-
-navBarPokedex.addEventListener("change", cargarPokemon);
-
-function cargarPokemon(){
+function cargarNombrePokemon(){
     let buscador = navBarPokedex.value.toLowerCase();
-    let i = listaPokemons.indexOf(listaPokemons.find((Pokemon) => Pokemon.nombre.includes(buscador.toLowerCase())));
-    return i;
+    return buscador
 }
+
+function mostrarUnPokemon(arrayPokemon) {
+    let tipos = arrayPokemon.types.map((type) => `<p class="tipo ${type.type.name}">${type.type.name}</p>`);
+    tipos = tipos.join("");
+    
+    const div = document.createElement("div");
+    div.classList.add("pokemon");
+    main.innerHTML= ``;
+    div.innerHTML = `
+            <img src="${arrayPokemon.sprites.other["official-artwork"].front_default}" class="img-pokemon"alt="${arrayPokemon.name}">
+            <div class="datos-pokemon">
+                <div class="nombre-pokemon">
+                    <p class="numero-pokemon">#${arrayPokemon.id}</p>
+                    <p class="nombre">${arrayPokemon.name}</p>
+                </div>
+                <div class="tipos-pokemon">    
+                    ${tipos} 
+                </div>
+                <div class="altura-peso">
+                    <div class="altura">
+                        <p>${arrayPokemon.height} mts</p>
+                    </div>
+                    <div>
+                        <p>${arrayPokemon.weight} kg</p>
+                    </div>
+                </div>
+            </div>`;
+            main.append(div);
+}
+
+
+//CODIGO DE INDEX
+
+const main = document.querySelector("#main");
+let direccionPokeapi= "https://pokeapi.co/api/v2/pokemon/";
+
+navBarPokedex.addEventListener("change", cargarNombrePokemon);
 
 formPokedex.addEventListener("submit", (e) => {
     e.preventDefault();
-    cargarPokemon();
-    let i = cargarPokemon();
+    cargarNombrePokemon();
+    let nombrePokemon = cargarNombrePokemon();
     
-    if (!listaPokemons[i]){
-        console.log("El pokemon que ingreso no es correcto!");
-    }else {    
-        pokedex.push(listaPokemons[i]);
-        console.log(pokedex);
-    
-        sessionStorage.setItem("PokeDex", JSON.stringify(pokedex));
-        mostrarUnPokemon();
-    };    
+    fetch(direccionPokeapi + nombrePokemon)
+        .then((result) => result.json())
+        .then((arrayPokemon) => 
+            mostrarUnPokemon(arrayPokemon),
+        )
 })
+
+
 
 
 
