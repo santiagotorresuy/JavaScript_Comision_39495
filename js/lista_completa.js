@@ -2,23 +2,23 @@ const containerCartas = document.getElementById("cuerpoCartas");
 let direccionPokeapi= "https://pokeapi.co/api/v2/pokemon/";
 
 function cargarCartas(){
-    for (let i=1; i<151; i++){
+    for (let i=1; i<= 151; i++){
         fetch(direccionPokeapi + i)
             .then( (result) => result.json())
             .then( (arrayPokemon) => crearCarta(arrayPokemon));
     }
 }
 
-function crearCarta(arrayPokemon){
+function crearCarta(data){
     const div = document.createElement("div");
     div.classList.add("card");
 
     div.innerHTML = `
         <div class="card-numero-nombre">
-            <p>#${arrayPokemon.id}</p>
-            <p>${arrayPokemon.name}</p>
+            <p>#${data.id}</p>
+            <p>${data.name}</p>
         </div>
-        <img class="img-pokemon-card" src="${arrayPokemon.sprites.other["official-artwork"].front_default}" alt="${arrayPokemon.sprites.other["official-artwork"].front_default}">
+        <img class="img-pokemon-card" src="${data.sprites.other["official-artwork"].front_default}" alt="${data.sprites.other["official-artwork"].front_default}">
     `;containerCartas.append(div);
 }
 
@@ -29,19 +29,24 @@ cargarCartas();
 const btnFiltroPorTipo = document.querySelectorAll(".nav-btn");
 
 btnFiltroPorTipo.forEach((button) => button.addEventListener("click", (e) => {
-    let listaClases = e.currentTarget.classList;
+    const btnId = e.currentTarget.id;
+    containerCartas.innerHTML = ``;
     
-    for (let i=1; i<151; i++){
+    for (let i=1; i<= 151; i++){
         fetch(direccionPokeapi + i)
             .then( (result) => result.json())
-            .then( (arrayPokemon) => {
-                const arrayTipos = arrayPokemon.types.map(type => type.type.name);
-                console.log(arrayTipos); //me da un array de cada tipo
-                
-                if (arrayTipos.includes())
+            .then( (arrayPokemon) => {               
+            
+                if(btnId === "todos"){
+                    crearCarta(arrayPokemon);
+                }else{
+                    const tiposPokemon = arrayPokemon.types.map(type => type.type.name);
+                    if(tiposPokemon.some((tipos) => tipos.includes(btnId))) {
+                        crearCarta(arrayPokemon);
+                    }
+                }
             });
-    }
-
+    };
 }));
 
 

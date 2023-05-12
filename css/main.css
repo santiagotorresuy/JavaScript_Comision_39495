@@ -102,7 +102,7 @@ main{
     color: white;
 }
 
-.plant{
+.grass{
     background-color: rgb(120,200,80);
     color: black;
 }
@@ -412,7 +412,7 @@ main{
 
 @media screen and (max-width: 425px) {
     .img-pokemon{
-        max-width: 15rem;
+        max-width: 100%;
     }
     .logo-pokeball{
         size: 100%;
@@ -454,6 +454,9 @@ main{
     }   
     .altura-peso{
         font-size: 20px;
+    }
+    main {
+        margin: 1rem 4rem;
     }
 }
 
