@@ -197,18 +197,18 @@ main{
     width: 15rem;
 }    
 
-.form{
+.form {
     justify-content: space-between;
-    padding: 1rem;
+    /* padding: 1rem; */
     gap: 10px;
-    width: 274px;
+    /* width: 274px; */
 }
 
 .nav-bar{
     padding: 7px 10px;
     border: none;
     border-radius: 10px;
-    width: 8rem;
+    width: 14rem;
 }
 
 .btn-buscar{
@@ -347,6 +347,46 @@ main{
     margin-block: 20px;
 }
 
+/*TIENDA POKEMON*/
+
+.nav-tienda-main-container{
+    display: grid;
+    grid-template-columns: 10% auto;
+    grid-template-rows: 100%;
+}
+
+.nav-tienda{
+    
+    width: fit-content;
+    text-align: center;
+    /*background:right-gradient(red, rgb(124, 2, 2));*/
+    box-shadow: 0 0 2rem;
+    padding-inline: 2rem;
+    padding-block: 3rem;
+}
+
+.nav-tienda-ul{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.nav-tienda-ul-li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(161, 6, 6, 0.829);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.nav-tienda-ul-img{
+    width: 2rem;
+}
+
+
 
 /*MEDIA QUERIES*/
 
@@ -430,6 +470,9 @@ main{
         font-size: 10px;
         padding-inline: 18px;
         padding-block: 10px;
+    }
+    .nav-bar{
+        width: 8rem;
     }
     .header-nav-btn {
         width: 5rem;
