@@ -186,6 +186,7 @@ main{
 
 .header-nav-btn:hover{
     transform: scale(1.1,1.1);
+    opacity: 0.8;
 }
 
 .a-header {
@@ -199,9 +200,7 @@ main{
 
 .form {
     justify-content: space-between;
-    /* padding: 1rem; */
     gap: 10px;
-    /* width: 274px; */
 }
 
 .nav-bar{
@@ -349,41 +348,101 @@ main{
 
 /*TIENDA POKEMON*/
 
-.nav-tienda-main-container{
-    display: grid;
-    grid-template-columns: 10% auto;
-    grid-template-rows: 100%;
+.nav-tienda-container{
+    display: flex;
+    
 }
 
 .nav-tienda{
-    
     width: fit-content;
     text-align: center;
-    /*background:right-gradient(red, rgb(124, 2, 2));*/
+    padding: 3rem 2rem 0 2rem;
+    background:rgb(124, 2, 2);
     box-shadow: 0 0 2rem;
-    padding-inline: 2rem;
-    padding-block: 3rem;
+    box-shadow: 0 1rem 2rem  rgb(29, 28, 28);
 }
 
 .nav-tienda-ul{
     display: flex;
     flex-direction: column;
+    padding-left: 0;
+    padding-bottom: 100%;
     gap: 2rem;
 }
 
 .nav-tienda-ul-li{
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: rgba(161, 6, 6, 0.829);
-    padding: 1rem 2rem;
+    background-image: linear-gradient(white, grey);
+    padding-inline: 1rem;
+    padding-block: 10px;
     border-radius: 10px;
     cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.nav-tienda-ul-li:hover{
+    opacity: 0.8;
+    transform: scale(1.1,1.1);
+
 }
 
 .nav-tienda-ul-img{
     width: 2rem;
+}
+
+.container-cartas{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin: 4rem;
+    width: 100%;
+}
+
+.carta-producto{
+    padding: 2rem;
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.466);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 1rem 2rem  rgb(29, 28, 28);
+}
+
+.titulo-carta{
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.btn-agregar-carrito{
+    padding: 10px;
+    background: linear-gradient(to top,rgb(96, 90, 133), rgb(94, 94, 236));
+    color: white;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.carta-precio{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.form-agregar-carrito{
+    display: flex;
+    gap: 15px;
+}
+
+.input-agregar-carrito{
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 5px;
+}
+
+.btn-agregar-carrito:hover{
+    transform: scale(1.1,1.1);
 }
 
 

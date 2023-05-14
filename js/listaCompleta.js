@@ -1,15 +1,8 @@
 const containerCartas = document.getElementById("cuerpoCartas");
 let direccionPokeapi= "https://pokeapi.co/api/v2/pokemon/";
 
-function cargarCartas(){
-    for (let i=1; i<= 151; i++){
-        fetch(direccionPokeapi + i)
-            .then( (result) => result.json())
-            .then( (arrayPokemon) => crearCarta(arrayPokemon));
-    }
-}
-
 function crearCarta(data){
+    
     const div = document.createElement("div");
     div.classList.add("card");
 
@@ -20,6 +13,14 @@ function crearCarta(data){
         </div>
         <img class="img-pokemon-card" src="${data.sprites.other["official-artwork"].front_default}" alt="${data.sprites.other["official-artwork"].front_default}">
     `;containerCartas.append(div);
+}
+
+function cargarCartas(){
+    for (let i=1; i<= 151; i++){
+        fetch(direccionPokeapi + i)
+            .then( (result) => result.json())
+            .then( (arrayPokemon) => crearCarta(arrayPokemon));
+    }
 }
 
 //CODIGO LISTA COMPLETA

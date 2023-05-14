@@ -1,0 +1,342 @@
+[
+    {
+        "id": 1,
+        "nombre": "Poké ball",
+        "img": "/img/Poké_Ball_EP.png",
+        "precio": 200,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 2,
+        "nombre": "Super ball",
+        "img": "/img/Super_Ball_EP.png",
+        "precio": 600,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 3,
+        "nombre": "Ultra ball",
+        "img": "/img/Ultra_Ball_EP.png",
+        "precio": 800,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 4,
+        "nombre": "Malla ball",
+        "img": "/img/Malla_Ball_EP.png",
+        "precio": 1000,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 5,
+        "nombre": "Ocaso ball",
+        "img": "/img/Ocaso_Ball_EP.png",
+        "precio": 1000,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 6,
+        "nombre": "Veloz ball",
+        "img": "/img/Veloz_Ball_EP.png",
+        "precio": 200,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 7,
+        "nombre": "Turno ball",
+        "img": "/img/Turno_Ball_EP.png",
+        "precio": 200,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 8,
+        "nombre": "Sana ball",
+        "img": "/img/Sana_Ball_EP.png",
+        "precio": 200,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 9,
+        "nombre": "Master ball",
+        "img": "/img/Master_Ball_EP.png",
+        "precio": 200,
+        "categoria": "pokeball"
+    },
+    {
+        "id": 10,
+        "nombre": "Ataque X",
+        "img": "/img/Ataque_X_EP.png",
+        "precio": 250,
+        "categoria": "objetoDeBatalla"
+    },
+    {
+        "id": 11,
+        "nombre": "Critico X",
+        "img": "/img/Crítico_X_EP.png",
+        "precio": 650,
+        "categoria": "objetoDeBatalla"
+
+    },
+    {
+        "id": 12,
+        "nombre": "Defensa especial X",
+        "img": "/img/Defensa_especial_X_EP.png",
+        "precio": 350,
+        "categoria": "objetoDeBatalla"
+
+    },
+    {
+        "id": 13,
+        "nombre": "Precisión X",
+        "img": "/img/Precisión_X_EP.png",
+        "precio": 950,
+        "categoria": "objetoDeBatalla"
+
+    },
+    {
+        "id": 14,
+        "nombre": "Protección X",
+        "img": "/img/Protección_X_EP.png",
+        "precio": 700,
+        "categoria": "objetoDeBatalla"
+
+    },
+    {
+        "id": 15,
+        "nombre": "Velocidad X",
+        "img": "/img/Velocidad_X_EP.png",
+        "precio": 350,
+        "categoria": "objetoDeBatalla"
+    },
+    {
+        "id": 16,
+        "nombre": "Agua fresca",
+        "img": "/img/Agua_fresca_EP.png",
+        "precio": 200,
+        "categoria": "objetoCurativo"
+    },
+    {
+        "id": 17,
+        "nombre": "Antídoto",
+        "img": "/img/Antídoto_EP.png",
+        "precio": 100,
+        "categoria": "objetoCurativo"
+    },
+    {
+        "id": 18,
+        "nombre": "Antihielo",
+        "img": "/img/Antihielo_EP.png",
+        "precio": 250,
+        "categoria": "objetoCurativo"
+    },
+    {
+        "id": 19,
+        "nombre": "Antiquemar",
+        "img": "/img/Antiquemar_EP.png",
+        "precio": 250,
+        "categoria": "objetoCurativo"
+    },
+    {
+        "id": 20,
+        "nombre": "Cura total",
+        "img": "/img/Cura_total_EP.png",
+        "precio": 600,
+        "categoria": "objetoCurativo"
+    },
+    {
+        "id": 21,
+        "nombre": "Despertar",
+        "img": "/img/Despertar_EP.png",
+        "precio": 250,
+        "categoria": "objetoCurativo"
+    },
+    {
+        "id": 22,
+        "nombre": "Elixir máximo",
+        "img": "/img/Elixir_máximo_EP.png",
+        "precio": 2000,
+        "categoria": "otrosObjetos"
+    },
+    {
+        "id": 23,
+        "nombre": "Éter",
+        "img": "/img/Éter_EP.png",
+        "precio": 600,
+        "categoria": "otrosObjetos"
+    },
+    {
+        "id": 24,
+        "nombre": "Éter máximo",
+        "img": "/img/Éter_máximo_EP.png",
+        "precio": 1000,
+        "categoria": "otrosObjetos"
+    },
+    {
+        "id": 25,
+        "nombre": "Hiperpoción",
+        "img": "/img/Hiperpoción_EP.png",
+        "precio": 1200,
+        "categoria":"objetoCurativo"
+    },
+    {
+        "id": 26,
+        "nombre": "Poción",
+        "img": "/img/Poción_EP.png",
+        "precio": 300,
+        "categoria":"objetoCurativo"
+    },
+    {
+        "id": 27,
+        "nombre": "Poción máxima",
+        "img": "/img/Poción_máxima_EP.png",
+        "precio": 2500,
+        "categoria":"objetoCurativo"
+    },
+    {
+        "id": 28,
+        "nombre": "Restaurar todo",
+        "img": "/img/Restaurar_todo_EP.png",
+        "precio": 3000,
+        "categoria":"objetoCurativo"
+    },
+    {
+        "id": 29,
+        "nombre": "Superpoción",
+        "img": "/img/Superpoción_EP.png",
+        "precio": 700,
+        "categoria":"objetoCurativo"
+    },
+    {
+        "id": 30,
+        "nombre": "MT tipo acero",
+        "img": "/img/MT_tipo_acero_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 31,
+        "nombre": "MT tipo agua",
+        "img": "/img/MT_tipo_agua_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 32,
+        "nombre": "MT tipo bicho",
+        "img": "/img/MT_tipo_bicho_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 33,
+        "nombre": "MT tipo dragon",
+        "img": "/img/MT_tipo_dragón_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 34,
+        "nombre": "MT tipo eléctrico",
+        "img": "/img/MT_tipo_eléctrico_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 35,
+        "nombre": "MT tipo fantasma",
+        "img": "/img/MT_tipo_fantasma_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 36,
+        "nombre": "MT tipo fuego",
+        "img": "/img/MT_tipo_fuego_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 37,
+        "nombre": "MT tipo hada",
+        "img": "/img/MT_tipo_hada_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 38,
+        "nombre": "MT tipo hielo",
+        "img": "/img/MT_tipo_hielo_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 39,
+        "nombre": "MT tipo lucha",
+        "img": "/img/MT_tipo_lucha_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 40,
+        "nombre": "MT tipo normal",
+        "img": "/img/MT_tipo_normal_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 41,
+        "nombre": "MT tipo planta",
+        "img": "/img/MT_tipo_planta_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 42,
+        "nombre": "MT tipo psíquico",
+        "img": "/img/MT_tipo_psíquico_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 43,
+        "nombre": "MT tipo roca",
+        "img": "/img/MT_tipo_roca_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 44,
+        "nombre": "MT tipo siniestro",
+        "img": "/img/MT_tipo_siniestro_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 45,
+        "nombre": "MT tipo veneno",
+        "img": "/img/MT_tipo_veneno_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 46,
+        "nombre": "MT tipo volador",
+        "img": "/img/MT_tipo_volador_EP.png",
+        "precio": 1000,
+        "categoria":"MT"
+    },
+    {
+        "id": 49,
+        "nombre": "Revivir",
+        "img": "/img/Revivir_EP.png",
+        "precio": 1500,
+        "categoria":"otrosObjetos"
+    },
+    {
+        "id": 50,
+        "nombre": "Revivir máximo",
+        "img": "/img/Revivir_máximo_EP.png",
+        "precio": 3000,
+        "categoria":"otrosObjetos"
+    }
+]
