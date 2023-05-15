@@ -3,9 +3,12 @@ const containerCartas = document.querySelector("#containerCartas");
 const btnFiltroCategoria = document.querySelectorAll(".nav-tienda-ul-li");
 const inputNavBar = document.getElementById("navBarPokedex");
 const btnPokedex = document.getElementById("btnPokedex");
+console.log(inputNavBar)
+console.log(btnPokedex)
 
 //ARRAYS
-let  objetosPokemonCartas = [];
+
+let objetosPokemonCartas;
 
 //FUNCIONES
 
@@ -28,11 +31,6 @@ function cuerpoCarta(lista){
     })
 }
 
-function crearCartasObjetos(data){
-    data.forEach((objeto) => objetosPokemonCartas.push(objeto))
-    cuerpoCarta(objetosPokemonCartas)
-};
-
 async function mostrarObjetos(){
     objetosPokemonCartas = await fetch("../objetosPokemon.json")
         .then((response) => {
@@ -40,42 +38,44 @@ async function mostrarObjetos(){
                 return response.json();
             }
         })
-        .then((objetos) => crearCartasObjetos(objetos))  
+        cuerpoCarta(objetosPokemonCartas);
 };
-
-
-    
-
-
 
 //CODIGO
 
 document.addEventListener("DOMContentLoaded", () =>{
     mostrarObjetos();
-    cargarCartaPokemon();
 })
 
+/*
+const inputNavBar = document.getElementById("navBarPokedex");
+const btnPokedex = document.getElementById("btnPokedex"); 
+*/
 
-btnFiltroCategoria.forEach((btn) => btn.addEventListener("click", (e) =>{
-    e.preventDefault();
+btnFiltroCategoria.forEach((btn) => btn.addEventListener("click", (e) =>{    
+    const btnId = e.currentTarget.id;
+    const objetosFiltradosCategoria = objetosPokemonCartas.filter(objeto => objeto.categoria == btnId)
 
-    const btnNombre = e.currentTarget.nombre;
-    containerCartas.innerHTML = ``
-    
-    if(btnNombre === "todos"){
+    if(btnId === "todos"){
         mostrarObjetos()
     }else{
-        const objetosFiltrados = objetosPokemonCartas.filter(objeto => objeto.nombre === btnNombre)
-        cuerpoCarta(objetosFiltrados);
+        cuerpoCarta(objetosFiltradosCategoria);
     }
 }));
 
+console.log(objetosPokemonCartas)
 
-function cargarCartaPokemon(){
-    inputNavBar.addEventListener("change", (e) => {
-        let nombreObjeto = e.value.toLowerCase();
-        return nombreObjeto;
-    })
-}
+inputNavBar.addEventListener("change", () => {
+    let nombrePokemon = inputNavBar.value;
+    return nombrePokemon
+}); 
+
+
+
+
+
+
+
+
 
 
