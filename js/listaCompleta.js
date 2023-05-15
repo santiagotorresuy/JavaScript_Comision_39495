@@ -2,7 +2,6 @@ const containerCartas = document.getElementById("cuerpoCartas");
 let direccionPokeapi= "https://pokeapi.co/api/v2/pokemon/";
 
 function crearCarta(data){
-    
     const div = document.createElement("div");
     div.classList.add("card");
 

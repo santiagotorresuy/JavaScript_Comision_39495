@@ -1,11 +1,3 @@
-//ELEMENTOS DEL DOM
-const containerCartas = document.querySelector("#containerCartas");
-const btnFiltroCategoria = document.querySelectorAll(".nav-tienda-ul-li");
-
-
-//ARRAYS
-let  objetosPokemonCartas = [];
-
 //FUNCIONES
 
 function cuerpoCarta(lista){
@@ -30,22 +22,6 @@ function cuerpoCarta(lista){
 function crearCartasObjetos(data){
     data.forEach((objeto) => objetosPokemonCartas.push(objeto))
     cuerpoCarta(objetosPokemonCartas)
-    /*containerCartas.innerHTML = ``;
-
-    for(let i=0; i <= objetosPokemonCartas.length; i++){
-        const div = document.createElement("div");
-        div.classList.add("carta-producto");
-    
-        div.innerHTML = `
-            <p class="titulo-carta">${objetosPokemonCartas[i].nombre}</p>
-            <img src="${objetosPokemonCartas[i].img}" alt="">
-            <p class="carta-precio">${objetosPokemonCartas[i].precio} ¥</p>
-            <form action="" class="form-agregar-carrito">
-                <input type="text" class="input-agregar-carrito">
-                <button class="btn-agregar-carrito">Agregar al carrito</button>
-            </form>
-        `;containerCartas.appendChild(div);
-    }*/
 };
 
 async function mostrarObjetos(){
@@ -72,11 +48,41 @@ function filtrarObjetos (){
     }));
 }
 
+//ELEMENTOS DEL DOM
+const containerCartas = document.querySelector("#containerCartas");
+const btnFiltroCategoria = document.querySelectorAll(".nav-tienda-ul-li");
+const inputNavBar = document.getElementById("navBarPokedex");
+const btnPokedex = document.getElementById("btnPokedex");
+
+//ARRAYS
+let  objetosPokemonCartas = [];
+
 //CODIGO
 
 document.addEventListener("DOMContentLoaded", () =>{
     mostrarObjetos();
     filtrarObjetos();
+    cargarCartaPokemon();
+    submitNombreObjeto();
 })
 
+
+
+function cargarCartaPokemon(){
+    inputNavBar.addEventListener("change", (e) => {
+        let nombreObjeto = e.value.toLowerCase();
+        return nombreObjeto;
+    })
+}
+
+function submitNombreObjeto(){
+    cargarCartaPokemon();
+    console.log(nombreObjeto)
+
+
+    btnPokedex.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+    })
+}
 

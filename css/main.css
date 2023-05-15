@@ -6,9 +6,10 @@
 }
 
 body{
-    background-image: url(../img/body-background1.jpg);
+    /*background-image: url(../img/body-background1.jpg);
     background-size:cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
+    background-color: rgb(60, 58, 177);
 }
 
 a{
@@ -413,7 +414,6 @@ main{
 .titulo-carta{
     color: rgb(47, 47, 179);
     font-size: 25px;
-    font-family: 'Common Pixel', sans-serif;
     margin-bottom: 10px;
 }
 
@@ -426,7 +426,6 @@ main{
 }
 
 .carta-precio{
-    font-family: 'Common Pixel', sans-serif;
     margin-bottom: 1rem;
     font-size: 2rem;
 }
