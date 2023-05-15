@@ -367,7 +367,7 @@ main{
     flex-direction: column;
     padding-left: 0;
     padding-bottom: 100%;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .nav-tienda-ul-li{
@@ -411,7 +411,9 @@ main{
 }
 
 .titulo-carta{
-    font-size: 2rem;
+    color: rgb(47, 47, 179);
+    font-size: 25px;
+    font-family: 'Common Pixel', sans-serif;
     margin-bottom: 10px;
 }
 
@@ -424,6 +426,7 @@ main{
 }
 
 .carta-precio{
+    font-family: 'Common Pixel', sans-serif;
     margin-bottom: 1rem;
     font-size: 2rem;
 }
