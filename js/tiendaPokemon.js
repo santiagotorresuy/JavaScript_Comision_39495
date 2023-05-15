@@ -1,22 +1,31 @@
+//ELEMENTOS DEL DOM
+const containerCartas = document.querySelector("#containerCartas");
+const btnFiltroCategoria = document.querySelectorAll(".nav-tienda-ul-li");
+const inputNavBar = document.getElementById("navBarPokedex");
+const btnPokedex = document.getElementById("btnPokedex");
+
+//ARRAYS
+let  objetosPokemonCartas = [];
+
 //FUNCIONES
 
 function cuerpoCarta(lista){
     containerCartas.innerHTML = ``;
 
-    for(let i=0; i <= lista.length; i++){
+    lista.forEach(obj =>{
         const div = document.createElement("div");
         div.classList.add("carta-producto");
     
         div.innerHTML = `
-            <p class="titulo-carta">${lista[i].nombre}</p>
-            <img src="${lista[i].img}" alt="">
-            <p class="carta-precio">${lista[i].precio} ¥</p>
+            <p class="titulo-carta">${obj.nombre}</p>
+            <img src="${obj.img}" alt="">
+            <p class="carta-precio">${obj.precio} ¥</p>
             <form action="" class="form-agregar-carrito">
                 <input type="text" class="input-agregar-carrito">
                 <button class="btn-agregar-carrito">Agregar al carrito</button>
             </form>
         `;containerCartas.appendChild(div);
-    }
+    })
 }
 
 function crearCartasObjetos(data){
@@ -34,38 +43,32 @@ async function mostrarObjetos(){
         .then((objetos) => crearCartasObjetos(objetos))  
 };
 
-function filtrarObjetos (){
-    btnFiltroCategoria.forEach((btn) => btn.addEventListener("click", (e) =>{
-        const btnId = e.currentTarget.id;
-        containerCartas.innerHTML = ``
-        
-        if(btnId === "todos"){
-            mostrarObjetos()
-        }else{
-            const objetosFiltrados = objetosPokemonCartas.filter((objeto) => objeto.categoria === btnId)
-            cuerpoCarta(objetosFiltrados);
-        }
-    }));
-}
 
-//ELEMENTOS DEL DOM
-const containerCartas = document.querySelector("#containerCartas");
-const btnFiltroCategoria = document.querySelectorAll(".nav-tienda-ul-li");
-const inputNavBar = document.getElementById("navBarPokedex");
-const btnPokedex = document.getElementById("btnPokedex");
+    
 
-//ARRAYS
-let  objetosPokemonCartas = [];
+
 
 //CODIGO
 
 document.addEventListener("DOMContentLoaded", () =>{
     mostrarObjetos();
-    filtrarObjetos();
     cargarCartaPokemon();
-    submitNombreObjeto();
 })
 
+
+btnFiltroCategoria.forEach((btn) => btn.addEventListener("click", (e) =>{
+    e.preventDefault();
+
+    const btnNombre = e.currentTarget.nombre;
+    containerCartas.innerHTML = ``
+    
+    if(btnNombre === "todos"){
+        mostrarObjetos()
+    }else{
+        const objetosFiltrados = objetosPokemonCartas.filter(objeto => objeto.nombre === btnNombre)
+        cuerpoCarta(objetosFiltrados);
+    }
+}));
 
 
 function cargarCartaPokemon(){
@@ -75,14 +78,4 @@ function cargarCartaPokemon(){
     })
 }
 
-function submitNombreObjeto(){
-    cargarCartaPokemon();
-    console.log(nombreObjeto)
-
-
-    btnPokedex.addEventListener("submit", (e) => {
-        e.preventDefault();
-        
-    })
-}
 
