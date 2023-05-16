@@ -414,6 +414,7 @@ main{
 }
 
 .carta-producto{
+    
     padding: 2rem;
     width: fit-content;
     background-color: rgba(255, 255, 255, 0.466);
@@ -461,6 +462,31 @@ main{
 /*CARRITO*/
 
 
+.cantidad-unidades{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.restar{
+    background-color: grey;
+    text-align: center;
+    font-size: 2rem;
+    padding-inline: 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.unidades{
+    font-size: 1rem;
+}
+
+.sumar{
+    background-color: grey;
+    font-size: 2rem;
+    padding-inline: 10px;
+    border-radius: 0 10px 10px 0;
+}
 
 
 

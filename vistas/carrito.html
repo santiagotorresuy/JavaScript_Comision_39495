@@ -25,30 +25,42 @@
                 <input class="nav-bar" id="navBarPokedex" type="search" placeholder="Buscar" aria-label="Search">
                 <button class="btn-buscar" id="btnPokedex" type="submit">Buscar</button>    
             </form>
-            <button type="button" class="btn btn-primary position-relative">
-                <a href="./carrito.html"><img src="../img/carro-de-la-compra.png" alt="img_carrito" class="img-carrito"></a>
-                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                  <span class="visually-hidden">1</span>
 
+
+
+            <button type="button" class="btn btn-primary position-relative" id="btnCarrito">
+                <a href="./carrito.html"><img src="../img/carro-de-la-compra.png" alt="img_carrito" class="img-carrito"></a>
+                <span class="d-none position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
                 </span>
-            </button>          
+            </button>       
+            
+            
+
+
         </nav>
     </header>
     <main>
-        <table class="table table-success table-striped">
+        <table class="table table-success table-striped" id="tablaCarrito">
             <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Objeto</th>
                   <th scope="col">Cantidad</th>
                   <th scope="col">Precio</th>
+                  <th scope=""></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">1</th>
                     <td>Pokeball</td>
-                    <td>1</td>
+                    <td>
+                        <div class="cantidad-unidades  ">
+                            <button class="restar">&#8722;</button>
+                            <span class="unidades">2</span>
+                            <button class="sumar">&#43;</button>
+                        </div>
+                    </td>
                     <td>200</td>
                 </tr>
                 <tr>
@@ -66,6 +78,8 @@
             </tbody>
         </table>
     </main>
-    <script src="../js/tiendaPokemon.js"></script>
+
+    <script src="../js/iconoCarrito.js"></script>
+    <script src="../js/carrito.js"></script>
 </body>
 </html>

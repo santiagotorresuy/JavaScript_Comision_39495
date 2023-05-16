@@ -9,6 +9,45 @@ const formTienda = document.getElementById("formPokedex");
 let carritoCompras = [];
 
 //FUNCIONES
+cargarObjetoCarrito = (e) => {
+    if(e.target.classList.contains("btn-agregar-carrito")){
+        e.preventDefault();
+        const cartaObjeto = e.target.parentElement.parentElement;
+        agregarObjetoCarrito(cartaObjeto);
+    }
+}
+
+agregarObjetoCarrito = (elemento) =>{
+    let nombreObjeto = elemento.querySelector("h4").textContent.toUpperCase();
+    let cantidadAComprar = elemento.querySelector("#objetoTiendaCantidad").value;
+    let objetoFiltrado = objetosPokemon.filter(objeto => objeto.nombre.toUpperCase() == nombreObjeto);
+    //console.log(nombreObjeto)
+    //console.log(cantidadAComprar)
+    //console.log(objetoFiltrado)
+
+    if(cantidadAComprar <= 99){
+        carritoCompras.push(objetoFiltrado);
+        console.log(carritoCompras)
+        localStorage.setItem("carrito", carritoCompras);
+        
+        alert("Objeto agregado exitosamente!");
+    }else{
+        alert("No hay más unidades en stock");
+    }
+};
+
+cargarNombreObjeto = () => {
+    let nombreObjeto = inputNavBar.value.toUpperCase();
+    return nombreObjeto
+};
+
+filtrarObjetosPorNombre = () => {
+    cargarNombreObjeto();
+    nombreObjeto = cargarNombreObjeto();  
+    let objetosFiltradosNombre = objetosPokemon.filter(objeto => objeto.nombre.toUpperCase() == nombreObjeto);
+
+    cuerpoCarta(objetosFiltradosNombre);
+}
 
 function cuerpoCarta(lista){
     containerCartas.innerHTML = ``;
@@ -18,55 +57,45 @@ function cuerpoCarta(lista){
         div.classList.add("carta-producto");
     
         div.innerHTML = `
-            <p class="titulo-carta">${obj.nombre}</p>
+            <h4 class="titulo-carta">${obj.nombre}</h4>
             <img src="${obj.img}" alt="">
             <p class="carta-precio">${obj.precio} ¥</p>
             <form action="" class="form-agregar-carrito" id="formAgregarAlCarrito">
-                <input type="text" class="input-agregar-carrito">
+                <input type="text" class="input-agregar-carrito" id="objetoTiendaCantidad" value="1">
                 <button class="btn-agregar-carrito" id="btnAgregarAlCarrito">Agregar al carrito</button>
             </form>
         `;containerCartas.appendChild(div);
     })
 }
 
-cargarNombreObjeto = () => {
-    let nombreObjeto = inputNavBar.value.toUpperCase();
-    return nombreObjeto
-}
-
 async function mostrarObjetos(){
-    objetosPokemonCartas = await fetch("../objetosPokemon.json")
+    objetosPokemon = await fetch("../objetosPokemon.json")
         .then((response) => {
             if (response.ok){
                 return response.json();
             }
-        })
+        });
+        cuerpoCarta(objetosPokemon);
 
-    cuerpoCarta(objetosPokemonCartas);
+    localStorage.setItem("objetos", JSON.stringify(objetosPokemon));
+    //const objetosDeLocalStorage = JSON.parse(localStorage.getItem("objetos"));
 
+    //EVENTOS PARA FILTROS Y NAVBAR
     inputNavBar.addEventListener("change", cargarNombreObjeto); 
-
-    console.log(objetosPokemonCartas)
-
     formTienda.addEventListener("submit", (e) => {
         e.preventDefault();
-        cargarNombreObjeto();
-        nombreObjeto = cargarNombreObjeto();
-        console.log(nombreObjeto)
-  
-        let objetosFiltradosNombre = objetosPokemonCartas.filter(objeto => objeto.nombre.toUpperCase() == nombreObjeto)
-        cuerpoCarta(objetosFiltradosNombre)
-    })
+        filtrarObjetosPorNombre();
+    });
 };
 
-//CODIGO 
+//CODIGO TIENDA
 
 document.addEventListener("DOMContentLoaded", () =>{
     mostrarObjetos();
 
     btnFiltroCategoria.forEach((btn) => btn.addEventListener("click", (e) =>{    
         const btnId = e.currentTarget.id;
-        let objetosFiltradosCategoria = objetosPokemonCartas.filter(objeto => objeto.categoria == btnId)
+        let objetosFiltradosCategoria = objetosPokemon.filter(objeto => objeto.categoria == btnId)
 
         if(btnId === "todos"){
             mostrarObjetos()
@@ -74,12 +103,12 @@ document.addEventListener("DOMContentLoaded", () =>{
             cuerpoCarta(objetosFiltradosCategoria);
         }
     }));
-})
+
+    containerCartas.addEventListener("click", cargarObjetoCarrito)
+});
 
 
 
-
-let btnCarrito = document.getElementById("btnCarrito")
 
 
 
