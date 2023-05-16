@@ -1,2 +1,6 @@
 const carrito = localStorage.getItem("carrito");
-console.log(carrito)
+let avisoIconoCarrito = document.querySelector("#avisoCarrito")
+
+if(carrito == []){
+    avisoIconoCarrito.classList.add("d-none");
+}

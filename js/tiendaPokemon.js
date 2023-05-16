@@ -4,6 +4,7 @@ const btnFiltroCategoria = document.querySelectorAll(".nav-tienda-ul-li");
 const inputNavBar = document.getElementById("navBarPokedex");
 const formTienda = document.getElementById("formPokedex");
 
+
 //CARRITO
 
 let carritoCompras = [];
@@ -21,15 +22,11 @@ agregarObjetoCarrito = (elemento) =>{
     let nombreObjeto = elemento.querySelector("h4").textContent.toUpperCase();
     let cantidadAComprar = elemento.querySelector("#objetoTiendaCantidad").value;
     let objetoFiltrado = objetosPokemon.filter(objeto => objeto.nombre.toUpperCase() == nombreObjeto);
-    //console.log(nombreObjeto)
-    //console.log(cantidadAComprar)
-    //console.log(objetoFiltrado)
 
     if(cantidadAComprar <= 99){
         carritoCompras.push(objetoFiltrado);
-        console.log(carritoCompras)
         localStorage.setItem("carrito", carritoCompras);
-        
+
         alert("Objeto agregado exitosamente!");
     }else{
         alert("No hay más unidades en stock");
@@ -77,9 +74,6 @@ async function mostrarObjetos(){
         });
         cuerpoCarta(objetosPokemon);
 
-    localStorage.setItem("objetos", JSON.stringify(objetosPokemon));
-    //const objetosDeLocalStorage = JSON.parse(localStorage.getItem("objetos"));
-
     //EVENTOS PARA FILTROS Y NAVBAR
     inputNavBar.addEventListener("change", cargarNombreObjeto); 
     formTienda.addEventListener("submit", (e) => {
@@ -104,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
     }));
 
-    containerCartas.addEventListener("click", cargarObjetoCarrito)
+    containerCartas.addEventListener("click", cargarObjetoCarrito);
 });
 
 
