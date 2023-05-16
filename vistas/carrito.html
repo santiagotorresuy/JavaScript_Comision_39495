@@ -7,9 +7,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
-    <title>carrito</title>
-</head>
+    <title>Carrito</title>
+</head> 
 <body>
-    
+    <header>
+        <nav class="nav">
+            <div class="div-logo">
+                <img src="../img/pngkit_pokeball-png_190666.png" class="logo-pokeball" alt="LogoPokeDex">
+                <h1 class="logo-pokedex">PokéDex</h1>
+            </div>
+            <div class="botones-header">
+                <button class="header-nav-btn"><a class="a-header" href="../index.html">Inicio</a></button>
+                <button class="header-nav-btn"><a class="a-header" href="lista-completa.html">Lista</a></button>
+                <button class="header-nav-btn"><a class="a-header" href="./tienda-pokemon.html">Tienda</a></button>
+            </div>
+            <form class="d-flex form" role="search" id="formPokedex">
+                <input class="nav-bar" id="navBarPokedex" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn-buscar" id="btnPokedex" type="submit">Buscar</button>    
+            </form>
+            <button type="button" class="btn btn-primary position-relative">
+                <a href="./carrito.html"><img src="../img/carro-de-la-compra.png" alt="img_carrito" class="img-carrito"></a>
+                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                  <span class="visually-hidden">1</span>
+
+                </span>
+            </button>          
+        </nav>
+    </header>
+    <main>
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Objeto</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Pokeball</td>
+                    <td>1</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Masterball</td>
+                  <td>1</td>
+                  <td>500</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>MT tipo dragón</td>
+                    <td>1</td>
+                    <td>1000</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script src="../js/tiendaPokemon.js"></script>
 </body>
 </html>

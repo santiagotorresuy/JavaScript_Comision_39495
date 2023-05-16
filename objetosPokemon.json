@@ -1,63 +1,63 @@
 [
     {
         "id": 1,
-        "nombre": "Poké ball",
+        "nombre": "Pokeball",
         "img": "/img/Poké_Ball_EP.png",
         "precio": 200,
         "categoria": "pokeball"
     },
     {
         "id": 2,
-        "nombre": "Super ball",
+        "nombre": "Superball",
         "img": "/img/Super_Ball_EP.png",
         "precio": 600,
         "categoria": "pokeball"
     },
     {
         "id": 3,
-        "nombre": "Ultra ball",
+        "nombre": "Ultraball",
         "img": "/img/Ultra_Ball_EP.png",
         "precio": 800,
         "categoria": "pokeball"
     },
     {
         "id": 4,
-        "nombre": "Malla ball",
+        "nombre": "Mallaball",
         "img": "/img/Malla_Ball_EP.png",
         "precio": 1000,
         "categoria": "pokeball"
     },
     {
         "id": 5,
-        "nombre": "Ocaso ball",
+        "nombre": "Ocasoball",
         "img": "/img/Ocaso_Ball_EP.png",
         "precio": 1000,
         "categoria": "pokeball"
     },
     {
         "id": 6,
-        "nombre": "Veloz ball",
+        "nombre": "Velozball",
         "img": "/img/Veloz_Ball_EP.png",
         "precio": 200,
         "categoria": "pokeball"
     },
     {
         "id": 7,
-        "nombre": "Turno ball",
+        "nombre": "Turnoball",
         "img": "/img/Turno_Ball_EP.png",
         "precio": 200,
         "categoria": "pokeball"
     },
     {
         "id": 8,
-        "nombre": "Sana ball",
+        "nombre": "Sanaball",
         "img": "/img/Sana_Ball_EP.png",
         "precio": 200,
         "categoria": "pokeball"
     },
     {
         "id": 9,
-        "nombre": "Master ball",
+        "nombre": "Masterball",
         "img": "/img/Master_Ball_EP.png",
         "precio": 200,
         "categoria": "pokeball"
@@ -334,7 +334,7 @@
     },
     {
         "id": 50,
-        "nombre": "Revivir máximo",
+        "nombre": "Revivir maximo",
         "img": "/img/Revivir_máximo_EP.png",
         "precio": 3000,
         "categoria":"otrosObjetos"
