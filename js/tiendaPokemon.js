@@ -3,6 +3,7 @@ const containerCartas = document.querySelector("#containerCartas");
 const btnFiltroCategoria = document.querySelectorAll(".nav-tienda-ul-li");
 const inputNavBar = document.getElementById("navBarPokedex");
 const formTienda = document.getElementById("formPokedex");
+const tbody = document.querySelector("#tbody")
 
 
 //CARRITO
@@ -18,7 +19,7 @@ cargarObjetoCarrito = (e) => {
     }
 }
 
-agregarObjetoCarrito = (elemento) =>{
+agregarObjetoCarrito = (elemento) =>{   
     let nuevoObjeto = new objetoPokemon (elemento.querySelector("h4").textContent, elemento.querySelector(".carta-precio").textContent, elemento.querySelector("#objetoTiendaCantidad").value);
     console.log(nuevoObjeto.nombre)
 
@@ -27,15 +28,37 @@ agregarObjetoCarrito = (elemento) =>{
 
     if(indexObjeto != -1){
         carritoCompras[indexObjeto].cantidad = parseInt(carritoCompras[indexObjeto].cantidad) + parseInt(nuevoObjeto.cantidad);
-        console.log(carritoCompras[indexObjeto].cantidad)
+        console.log(carritoCompras[indexObjeto].cantidad);
     }else{
         carritoCompras.push(nuevoObjeto);
-        console.log(carritoCompras)
+        console.log(carritoCompras);
     }
-
-    
-    
+    localStorage.setItem("carrito", JSON.stringify(carritoCompras));
+    //restaurarCarrito()
 };
+
+mostrarCarrito = () => {
+    tbody.innerHTML = ``
+    const tr = document.createElement("tr");
+    
+
+    carritoCompras.forEach((objeto) => {
+        let counter;
+        tr.innerHTML= `
+        <th scope="row">${counter}</th>
+        <td>${objeto.nombre}</td>
+        <td>
+            <div class="cantidad-unidades  ">
+                <button class="restar">&#8722;</button>
+                <span class="unidades">${objeto.cantidad}</span>
+                <button class="sumar">&#43;</button>
+            </div>
+        </td>
+        <td>${objeto.precio}</td>
+    `
+    })
+    
+}
 
 cargarNombreObjeto = () => {
     let nombreObjeto = inputNavBar.value.toUpperCase();
