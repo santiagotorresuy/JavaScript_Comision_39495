@@ -19,18 +19,22 @@ cargarObjetoCarrito = (e) => {
 }
 
 agregarObjetoCarrito = (elemento) =>{
-    let nombreObjeto = elemento.querySelector("h4").textContent.toUpperCase();
-    let cantidadAComprar = elemento.querySelector("#objetoTiendaCantidad").value;
-    let objetoFiltrado = objetosPokemon.filter(objeto => objeto.nombre.toUpperCase() == nombreObjeto);
+    let nuevoObjeto = new objetoPokemon (elemento.querySelector("h4").textContent, elemento.querySelector(".carta-precio").textContent, elemento.querySelector("#objetoTiendaCantidad").value);
+    console.log(nuevoObjeto.nombre)
 
-    if(cantidadAComprar <= 99){
-        carritoCompras.push(objetoFiltrado);
-        localStorage.setItem("carrito", carritoCompras);
+    let indexObjeto = carritoCompras.findIndex(objeto => objeto.nombre == nuevoObjeto.nombre);
+    console.log(indexObjeto)
 
-        alert("Objeto agregado exitosamente!");
+    if(indexObjeto != -1){
+        carritoCompras[indexObjeto].cantidad = parseInt(carritoCompras[indexObjeto].cantidad) + parseInt(nuevoObjeto.cantidad);
+        console.log(carritoCompras[indexObjeto].cantidad)
     }else{
-        alert("No hay más unidades en stock");
+        carritoCompras.push(nuevoObjeto);
+        console.log(carritoCompras)
     }
+
+    
+    
 };
 
 cargarNombreObjeto = () => {
