@@ -255,7 +255,7 @@ main{
 
 .nombre-pokemon{
     display: flex;
-    background:linear-gradient(rgba(206, 85, 85, 0.795), rgba(145, 31, 31, 0.747));
+    background:linear-gradient(red, rgb(124, 2, 2));
     font-size: 2rem;
     padding: 5px 20px;
     color: white;
@@ -581,13 +581,13 @@ td{
 }
 
 @media screen and (max-width: 768px) {
-    .cards-cuerpo{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        align-items: center;
-        row-gap: 50px;
-        column-gap: 50px;
+    .container-cartas{
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content;
+        column-gap: 2rem;
+        margin-bottom: 2rem;
+        row-gap: 2rem;
+        width: 100%;
     }
 }
 

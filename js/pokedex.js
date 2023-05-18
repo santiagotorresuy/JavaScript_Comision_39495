@@ -51,7 +51,25 @@ formPokedex.addEventListener("submit", (e) => {
     let nombrePokemon = cargarNombrePokemon();
     
     fetch(direccionPokeapi + nombrePokemon)
-        .then((result) => result.json())
+        .then((result) => {
+            if(result.ok){
+               return result.json()
+            }else {
+                throw new Error ("Hubo un problema en el servidor!");
+            }
+        }).catch((error) => {
+            Toastify({
+            text: error,
+            duration: 2000,
+            gravity: "top",
+            position: "right", 
+            style: {
+                background: "linear-gradient(rgba(206, 85, 85, 0.795), rgba(145, 31, 31, 0.747))",
+                marginTop: "6rem"
+            },
+          }).showToast();
+        }
+        )
         .then((arrayPokemon) => 
             mostrarUnPokemon(arrayPokemon),
         )
