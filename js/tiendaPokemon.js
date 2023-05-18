@@ -67,20 +67,21 @@ mostrarCarrito = () => {
             let restar = e.target;
             let index = carritoCompras.find(objeto => objeto.nombre == restar.id)
             
-            if(index.cantidad > 1 && index.cantidad < 99){
+            if(index.cantidad > 1 && index.cantidad <= 99){
                 index.cantidad--
                 mostrarCarrito()
             }
         });
 
         //SUMAR O RESTAR UNIDADES EN EL CARRITO
-        let sumar = tr.querySelector(".sumar");
-        sumar.addEventListener("click", (e) =>{
+        let btnSumar = tr.querySelector(".sumar");
+        btnSumar.addEventListener("click", (e) =>{
             let sumar = e.target;
             let index = carritoCompras.find(objeto => objeto.nombre == sumar.id)
             
-            if(index.cantidad > 1 && index.cantidad < 99){
-                index.cantidad--
+            if(index.cantidad >= 1 && index.cantidad < 99){
+                index.cantidad++
+                localStorage.setItem("carrito", JSON.stringify(carritoCompras))
                 mostrarCarrito()
             }
         });
