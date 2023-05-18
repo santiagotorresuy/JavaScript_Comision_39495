@@ -255,7 +255,7 @@ main{
 
 .nombre-pokemon{
     display: flex;
-    background:linear-gradient(red, rgb(124, 2, 2));
+    background:linear-gradient(rgba(206, 85, 85, 0.795), rgba(145, 31, 31, 0.747));
     font-size: 2rem;
     padding: 5px 20px;
     color: white;

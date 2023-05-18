@@ -8,7 +8,7 @@ const btnVaciarCarrito = document.querySelector(".vaciar-carrito");
 const btnCarrito = document.querySelector("#btnCarrito");
 const containerCarrito = document.querySelector("#containerCarrito");
 const unidades = document.querySelector(".unidades");
-
+const btnComprar = document.querySelector("#comprar")
 
 
 //CARRITO
@@ -21,6 +21,17 @@ cargarObjetoCarrito = (e) => {
         e.preventDefault();
         const cartaObjeto = e.target.parentElement.parentElement;
         agregarObjetoCarrito(cartaObjeto);
+
+        Toastify({
+            text: "Objeto agregado!",
+            duration: 2000,
+            gravity: "top",
+            position: "right", 
+            style: {
+                background: "linear-gradient(rgba(206, 85, 85, 0.795), rgba(145, 31, 31, 0.747))",
+                marginTop: "6rem"
+            },
+          }).showToast();
     }
 }
 
@@ -88,11 +99,30 @@ mostrarCarrito = () => {
     });
     //SUMAR TOTAL
     let index = carritoCompras.findIndex(objeto => objeto.nombre == tbody.querySelector("#nombre").textContent);
+    let precioTotal = carritoCompras.reduce((acumulador, objeto) => acumulador + parseInt(objeto.precio)*parseInt(objeto.cantidad), 0)
 
     if(index != -1){
-        let precioTotal = carritoCompras.reduce((acumulador, objeto) => acumulador + parseInt(objeto.precio)*parseInt(objeto.cantidad), 0)
         let total = containerCarrito.querySelector("#totalPrecio");
         total.textContent = "¥" + precioTotal;
+    }
+
+    comprarObjetos = () =>{
+        Swal.fire({
+            icon: 'question',
+            title: 'Desea comprar estos objetos?',
+            text: "Precio total: ¥" + precioTotal,
+            showConfirmButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Aceptar',
+            denyButtonText: `Cancelar`,
+          }).then((result) => {
+            if (result.isConfirmed) {    
+                Swal.fire({
+                    icon: 'success',
+                    title: "Compra realizada!",
+                });
+            }
+          })
     }
 }
 
@@ -123,12 +153,27 @@ eliminarObjeto = (e) => {
 }
 
 vaciarCarrito = () =>{
-    carritoCompras = [];
-    tbody.innerHTML=``
-    localStorage.setItem("carrito", JSON.stringify(carritoCompras))
-    mostrarCarrito()
-}
+    Swal.fire({
+        icon: 'question',
+        title: 'Desea vaciar el carrito?',
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        denyButtonText: `Cancelar`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+            carritoCompras = [];
+            tbody.innerHTML=``
+            localStorage.setItem("carrito", JSON.stringify(carritoCompras))
+            mostrarCarrito()
 
+            Swal.fire({
+                icon: 'success',
+                title: "Carrito vaciado!",
+            });
+        }
+      })
+}
 
 
 //FUNCION PARA ALTERNAR ENTRE TIENDA Y CARRITO
@@ -226,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     containerCartas.addEventListener("click", cargarObjetoCarrito);
     btnVaciarCarrito.addEventListener("click", vaciarCarrito);
     btnCarrito.addEventListener("click", displayNone);
-    
+    btnComprar.addEventListener("click", comprarObjetos);
 });
 
 
