@@ -212,7 +212,7 @@ main{
 }
 
 .btn-buscar{
-    background: linear-gradient(white, skyblue);
+    background: linear-gradient(white, rgb(52, 133, 165));
     color: white;
     width: 100px;
     padding-inline: 1rem;
@@ -403,13 +403,17 @@ main{
     width: 2rem;
 }
 
+.container-cartas-carrito {
+    margin: 2rem 3rem 0 3rem;
+    width: 100%;
+}
+
 .container-cartas{
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
     grid-template-rows: min-content;
     column-gap: 2rem;
+    margin-bottom: 2rem;
     row-gap: 2rem;
-    margin: 4rem;
     width: 100%;
 }
 
@@ -461,12 +465,32 @@ main{
 
 /*CARRITO*/
 
+th{
+    text-align: center;
+}
+
+td{
+    text-align: center;
+}
 
 .cantidad-unidades{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     
+}
+
+.eliminar{
+    color: white;
+    padding: 1rem;
+    background:linear-gradient(rgb(221, 67, 67), rgb(99, 1, 1));
+    border-radius: 10px;
+    transition-duration: 0.2s;
+}
+
+.eliminar:hover{
+    transform: scale(1.1,1.1);
 }
 
 .restar{
@@ -475,6 +499,11 @@ main{
     font-size: 2rem;
     padding-inline: 10px;
     border-radius: 10px 0 0 10px;
+    transition-duration: 0.2s;
+}
+
+.restar:hover{
+    opacity: 0.8;
 }
 
 .unidades{
@@ -486,6 +515,23 @@ main{
     font-size: 2rem;
     padding-inline: 10px;
     border-radius: 0 10px 10px 0;
+    transition-duration: 0.2s;
+}
+
+.sumar:hover{
+    opacity: 0.8;
+}
+
+.vaciar-carrito{
+    color: white;
+    padding: 1rem;
+    background: linear-gradient(white, rgb(52, 133, 165));
+    border-radius: 10px;
+    transition-duration: 0.2s;
+}
+
+.vaciar-carrito:hover{
+    transform: scale(1.1,1.1);
 }
 
 

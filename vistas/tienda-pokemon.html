@@ -27,9 +27,7 @@
             </form>   
 
             <button type="button" class="btn btn-primary position-relative" id="btnCarrito">
-                <a href="./carrito.html"><img src="../img/carro-de-la-compra.png" alt="img_carrito" class="img-carrito"></a>
-                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" id="avisoCarrito">
-                </span>
+                <img src="../img/carro-de-la-compra.png" alt="img_carrito" class="img-carrito">
             </button>        
 
 
@@ -64,20 +62,57 @@
                 </li>
             </ul>
         </div>
-        <div class="container-cartas" id="containerCartas">
-            <div class="carta-producto">
-                <h4 class="titulo-carta"></h4>
-                <img src="" alt="">
-                <p class="carta-precio"></p>
-                <form action="" class="form-agregar-carrito" id="formAgregarAlCarrito">
-                    <input type="text" class="input-agregar-carrito" id="objetoTiendaCantidad">
-                    <button class="btn-agregar-carrito" id="btnAgregarAlCarrito">Agregar al carrito</button>
-                </form>
+        <div class="container-cartas-carrito ">
+            <div class="container-carrito d-none" id="containerCarrito">
+                <table class="table table-success table-striped" id="tablaCarrito">
+                    <thead>
+                        <tr>
+                          <th scope="col">Objeto</th>
+                          <th scope="col">Cantidad</th>
+                          <th scope="col">Precio</th>
+                          <th scope="col"></th>
+                          <th scope="cole">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenedorCarrito">
+                        <tr>
+                            <td>Pokeball</td>
+                            <td>
+                                <div class="cantidad-unidades  ">
+                                    <button class="restar">&#8722;</button>
+                                    <span class="unidades">2</span>
+                                    <button class="sumar">&#43;</button>
+                                </div>
+                            </td>
+                            <td>200</td>
+                            <td><button type="button" class="eliminar btm" id="btnEliminar"></button></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th scope="row"><button class="vaciar-carrito">Vaciar carrito</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                        </tr>
+                    </tfoot>    
+                </table>
             </div>
-            <!--CARTAS OBJETOS POKEMON-->
-        </div>
-    </div>
-    
+            <div class="container-cartas d-grid" id="containerCartas">
+                <div class="carta-producto">
+                    <h4 class="titulo-carta"></h4>
+                    <img src="" alt="">
+                    <p class="carta-precio"></p>
+                    <form action="" class="form-agregar-carrito" id="formAgregarAlCarrito">
+                        <input type="text" class="input-agregar-carrito" id="objetoTiendaCantidad">
+                        <button class="btn-agregar-carrito" id="btnAgregarAlCarrito">Agregar al carrito</button>
+                    </form>
+                </div>
+                <!--CARTAS OBJETOS POKEMON-->
+            </div>
+        </div>    
     
     <script src="../js/constructoObjeto.js"></script>
     <script src="../js/tiendaPokemon.js"></script>

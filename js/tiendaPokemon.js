@@ -3,14 +3,19 @@ const containerCartas = document.querySelector("#containerCartas");
 const btnFiltroCategoria = document.querySelectorAll(".nav-tienda-ul-li");
 const inputNavBar = document.getElementById("navBarPokedex");
 const formTienda = document.getElementById("formPokedex");
-const tbody = document.querySelector("#tbody")
+const tbody = document.querySelector("tbody");
+const btnVaciarCarrito = document.querySelector(".vaciar-carrito");
+const btnCarrito = document.querySelector("#btnCarrito");
+const containerCarrito = document.querySelector("#containerCarrito");
+const unidades = document.querySelector(".unidades");
+
 
 
 //CARRITO
-
 let carritoCompras = [];
 
-//FUNCIONES
+
+//FUNCIONES CARRITO
 cargarObjetoCarrito = (e) => {
     if(e.target.classList.contains("btn-agregar-carrito")){
         e.preventDefault();
@@ -21,44 +26,101 @@ cargarObjetoCarrito = (e) => {
 
 agregarObjetoCarrito = (elemento) =>{   
     let nuevoObjeto = new objetoPokemon (elemento.querySelector("h4").textContent, elemento.querySelector(".carta-precio").textContent, elemento.querySelector("#objetoTiendaCantidad").value);
-    console.log(nuevoObjeto.nombre)
 
     let indexObjeto = carritoCompras.findIndex(objeto => objeto.nombre == nuevoObjeto.nombre);
-    console.log(indexObjeto)
 
     if(indexObjeto != -1){
         carritoCompras[indexObjeto].cantidad = parseInt(carritoCompras[indexObjeto].cantidad) + parseInt(nuevoObjeto.cantidad);
-        console.log(carritoCompras[indexObjeto].cantidad);
     }else{
         carritoCompras.push(nuevoObjeto);
-        console.log(carritoCompras);
     }
     localStorage.setItem("carrito", JSON.stringify(carritoCompras));
-    //restaurarCarrito()
+    mostrarCarrito()
 };
 
 mostrarCarrito = () => {
     tbody.innerHTML = ``
-    const tr = document.createElement("tr");
-    
 
     carritoCompras.forEach((objeto) => {
-        let counter;
+        const tr = document.createElement("tr");
+        
         tr.innerHTML= `
-        <th scope="row">${counter}</th>
         <td>${objeto.nombre}</td>
         <td>
             <div class="cantidad-unidades  ">
-                <button class="restar">&#8722;</button>
+                <button class="restar" id="${objeto.nombre}">&#8722;</button>
                 <span class="unidades">${objeto.cantidad}</span>
-                <button class="sumar">&#43;</button>
+                <button class="sumar" id="${objeto.nombre}">&#43;</button>
             </div>
         </td>
-        <td>${objeto.precio}</td>
-    `
-    })
-    
+        <td>¥${(objeto.precio)*(objeto.cantidad)}</td>
+        <td><button type="button" class="eliminar btm" id="${objeto.nombre}">Eliminar</button></td>
+        <td></td>
+        `;tbody.appendChild(tr);
+        
+        //ELIMINAR UN ELEMENTO DEL CARRITO
+        let btnEliminar = tr.querySelector(".eliminar");
+        btnEliminar.addEventListener("click", eliminarObjeto)
+
+        let btnRestar = tr.querySelector(".restar");
+        btnRestar.addEventListener("click", (e) =>{
+            let restar = e.target;
+            let index = carritoCompras.find(objeto => objeto.nombre == restar.id)
+            
+            if(index.cantidad > 1 && index.cantidad < 99){
+                index.cantidad--
+                mostrarCarrito()
+            }
+        });
+
+        //SUMAR O RESTAR UNIDADES EN EL CARRITO
+        let sumar = tr.querySelector(".sumar");
+        sumar.addEventListener("click", (e) =>{
+            let sumar = e.target;
+            let index = carritoCompras.find(objeto => objeto.nombre == sumar.id)
+            
+            if(index.cantidad > 1 && index.cantidad < 99){
+                index.cantidad--
+                mostrarCarrito()
+            }
+        });
+    });
 }
+
+eliminarObjeto = (e) => { 
+    let eliminar = e.target;
+    eliminar.parentElement.parentElement.innerHTML = ``;
+    carritoCompras = carritoCompras.filter (objeto => objeto.nombre != eliminar.id)
+    localStorage.setItem("carrito", JSON.stringify(carritoCompras))
+    mostrarCarrito()
+}
+
+vaciarCarrito = () =>{
+    carritoCompras = [];
+    tbody.innerHTML=``
+    localStorage.setItem("carrito", JSON.stringify(carritoCompras))
+    mostrarCarrito()
+}
+
+
+
+//FUNCION PARA ALTERNAR ENTRE TIENDA Y CARRITO
+displayNone = () =>{
+    let display = containerCarrito.classList.contains("d-none");
+    
+    if(display === true){
+        containerCarrito.classList.remove("d-none");
+        containerCartas.classList.replace("d-grid", "d-none");
+    }else{
+        containerCarrito.classList.add("d-none");
+        containerCartas.classList.replace("d-none", "d-grid");
+    }
+}
+
+
+
+
+//FUNCIONES PARA BUSCAR OBJETO CON LA NAVBAR
 
 cargarNombreObjeto = () => {
     let nombreObjeto = inputNavBar.value.toUpperCase();
@@ -73,6 +135,11 @@ filtrarObjetosPorNombre = () => {
     cuerpoCarta(objetosFiltradosNombre);
 }
 
+
+
+
+//FUNCIONES PARA LA LISTA COMPLETA
+
 function cuerpoCarta(lista){
     containerCartas.innerHTML = ``;
 
@@ -83,7 +150,7 @@ function cuerpoCarta(lista){
         div.innerHTML = `
             <h4 class="titulo-carta">${obj.nombre}</h4>
             <img src="${obj.img}" alt="">
-            <p class="carta-precio">${obj.precio} ¥</p>
+            <p class="carta-precio">${obj.precio}</p>
             <form action="" class="form-agregar-carrito" id="formAgregarAlCarrito">
                 <input type="text" class="input-agregar-carrito" id="objetoTiendaCantidad" value="1">
                 <button class="btn-agregar-carrito" id="btnAgregarAlCarrito">Agregar al carrito</button>
@@ -109,7 +176,8 @@ async function mostrarObjetos(){
     });
 };
 
-//CODIGO TIENDA
+
+//CODIGO
 
 document.addEventListener("DOMContentLoaded", () =>{
     mostrarObjetos();
@@ -125,7 +193,12 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
     }));
 
+    carritoCompras = JSON.parse(localStorage.getItem("carrito")) || [];
+    mostrarCarrito();
+
     containerCartas.addEventListener("click", cargarObjetoCarrito);
+    btnVaciarCarrito.addEventListener("click", vaciarCarrito);
+    btnCarrito.addEventListener("click", displayNone);
 });
 
 
