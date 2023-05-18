@@ -45,7 +45,7 @@ mostrarCarrito = () => {
         const tr = document.createElement("tr");
         
         tr.innerHTML= `
-        <td>${objeto.nombre}</td>
+        <td id="nombre">${objeto.nombre}</td>
         <td>
             <div class="cantidad-unidades  ">
                 <button class="restar" id="${objeto.nombre}">&#8722;</button>
@@ -53,15 +53,15 @@ mostrarCarrito = () => {
                 <button class="sumar" id="${objeto.nombre}">&#43;</button>
             </div>
         </td>
-        <td>¥${(objeto.precio)*(objeto.cantidad)}</td>
+        <td id="precio">¥${(objeto.precio)*(objeto.cantidad)}</td>
         <td><button type="button" class="eliminar btm" id="${objeto.nombre}">Eliminar</button></td>
-        <td></td>
         `;tbody.appendChild(tr);
         
         //ELIMINAR UN ELEMENTO DEL CARRITO
         let btnEliminar = tr.querySelector(".eliminar");
         btnEliminar.addEventListener("click", eliminarObjeto)
 
+        //RESTAR UNIDADES EN EL CARRITO
         let btnRestar = tr.querySelector(".restar");
         btnRestar.addEventListener("click", (e) =>{
             let restar = e.target;
@@ -73,7 +73,7 @@ mostrarCarrito = () => {
             }
         });
 
-        //SUMAR O RESTAR UNIDADES EN EL CARRITO
+        //SUMAR UNIDADES EN EL CARRITO
         let btnSumar = tr.querySelector(".sumar");
         btnSumar.addEventListener("click", (e) =>{
             let sumar = e.target;
@@ -86,14 +86,40 @@ mostrarCarrito = () => {
             }
         });
     });
+    //SUMAR TOTAL
+    let index = carritoCompras.findIndex(objeto => objeto.nombre == tbody.querySelector("#nombre").textContent);
+
+    if(index != -1){
+        let precioTotal = carritoCompras.reduce((acumulador, objeto) => acumulador + parseInt(objeto.precio)*parseInt(objeto.cantidad), 0)
+        let total = containerCarrito.querySelector("#totalPrecio");
+        total.textContent = "¥" + precioTotal;
+    }
 }
 
-eliminarObjeto = (e) => { 
-    let eliminar = e.target;
-    eliminar.parentElement.parentElement.innerHTML = ``;
-    carritoCompras = carritoCompras.filter (objeto => objeto.nombre != eliminar.id)
-    localStorage.setItem("carrito", JSON.stringify(carritoCompras))
-    mostrarCarrito()
+
+eliminarObjeto = (e) => {
+    Swal.fire({
+        icon: 'question',
+        title: 'Desea eliminar este item?',
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        denyButtonText: `Cancelar`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+            let eliminar = e.target;
+            eliminar.parentElement.parentElement.innerHTML = ``;
+            carritoCompras = carritoCompras.filter (objeto => objeto.nombre != eliminar.id)
+            localStorage.setItem("carrito", JSON.stringify(carritoCompras))
+            mostrarCarrito()
+
+            Swal.fire({
+                icon: 'success',
+                title: "Objeto eliminado!",
+            });
+        }
+      })
+    
 }
 
 vaciarCarrito = () =>{
@@ -200,10 +226,8 @@ document.addEventListener("DOMContentLoaded", () =>{
     containerCartas.addEventListener("click", cargarObjetoCarrito);
     btnVaciarCarrito.addEventListener("click", vaciarCarrito);
     btnCarrito.addEventListener("click", displayNone);
+    
 });
-
-
-
 
 
 
